@@ -15,7 +15,7 @@ const ApplyButton = () => {
         Apply Now
       </button>
       <Modal isOpen={isOpen} onClose={closeModal} onConfirm={handleConfirmClick}>
-        <p className="mb-4">You are about to leave this page. Do you want to proceed?</p>
+        <p className="mb-4">You are about to leave LuminAI. Do you want to proceed?</p>
       </Modal>
     </div>
   );
