@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/LuminAI/static/css/main.527dd494.css",
+    "main.js": "/LuminAI/static/js/main.49107c3f.js",
+    "static/js/453.28ba00bc.chunk.js": "/LuminAI/static/js/453.28ba00bc.chunk.js",
+    "index.html": "/LuminAI/index.html",
+    "main.527dd494.css.map": "/LuminAI/static/css/main.527dd494.css.map",
+    "main.49107c3f.js.map": "/LuminAI/static/js/main.49107c3f.js.map",
+    "453.28ba00bc.chunk.js.map": "/LuminAI/static/js/453.28ba00bc.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.527dd494.css",
+    "static/js/main.49107c3f.js"
+  ]
+}
