@@ -1,7 +1,7 @@
 {
   "name": "lumin-ai",
   "version": "0.1.0",
-  "homepage": "https://SamGu-NRX.github.io/LuminAI",
+  "homepage": "https://samgu-nrx.github.io/LuminAI/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",

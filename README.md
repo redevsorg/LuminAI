@@ -1,1 +1,1 @@
-
+This is Lumin AI's website.
