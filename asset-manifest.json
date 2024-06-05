@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/LuminAI/static/css/main.527dd494.css",
-    "main.js": "/LuminAI/static/js/main.12540f1c.js",
+    "main.css": "/LuminAI/static/css/main.6799e096.css",
+    "main.js": "/LuminAI/static/js/main.3c8ea028.js",
     "static/js/453.28ba00bc.chunk.js": "/LuminAI/static/js/453.28ba00bc.chunk.js",
     "index.html": "/LuminAI/index.html",
-    "main.527dd494.css.map": "/LuminAI/static/css/main.527dd494.css.map",
-    "main.12540f1c.js.map": "/LuminAI/static/js/main.12540f1c.js.map",
+    "main.6799e096.css.map": "/LuminAI/static/css/main.6799e096.css.map",
+    "main.3c8ea028.js.map": "/LuminAI/static/js/main.3c8ea028.js.map",
     "453.28ba00bc.chunk.js.map": "/LuminAI/static/js/453.28ba00bc.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.527dd494.css",
-    "static/js/main.12540f1c.js"
+    "static/css/main.6799e096.css",
+    "static/js/main.3c8ea028.js"
   ]
 }
