@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import Header from './components/Header';
+import Header from './components/header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Syllabus from './pages/Syllabus';
@@ -12,7 +12,7 @@ import './styles/tailwind.css';
 
 const App = () => (
   <div className="flex flex-col min-h-screen">
-    <Header />
+    <Header/>
     <main className="flex-grow">
       <Routes>
         <Route path="/" element={<Home />} />
@@ -22,7 +22,7 @@ const App = () => (
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </main>
-    <Footer />
+    <Footer/>
   </div>
 );
 
