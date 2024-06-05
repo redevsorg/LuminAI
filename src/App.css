@@ -85,3 +85,22 @@ code {
 .fadeIn {
   animation: fadeIn 1s ease-out forwards;
 }
+
+.modal-enter-active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.modal-exit-active {
+  transform: translateY(4);
+  opacity: 0;
+}
+
+/* @keyframes buttonHover {
+    0% {
+      color:lab(from color l a b);
+    }
+    100%{
+      color: lab(from color l+200 a b);
+    }
+} */

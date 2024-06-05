@@ -3,13 +3,7 @@
 @tailwind utilities;
 
 /* Add this to your tailwind.css or another CSS file */
-.modal-enter-active {
-    transform: translateY(0);
-    opacity: 1;
+.darken-slide {
+    background-image: linear-gradient(to bottom, var(--tw-bg-opacity, 1) var(--tw-bg-opacity, 1) 50%, #3730a3 100%);
+    animation: darkenSlide 1s forwards;
   }
-  
-  .modal-exit-active {
-    transform: translateY(4);
-    opacity: 0;
-  }
-  
