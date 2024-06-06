@@ -14,7 +14,15 @@ const ApplyButton = () => {
       <button onClick={openModal} className="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-700">
         Apply Now!
       </button>
-      <Modal isOpen={isOpen} onClose={closeModal} onConfirm={handleConfirmClick}>
+      <Modal
+        isOpen={isOpen}
+        onClose={closeModal}
+        onConfirm={handleConfirmClick}
+        confirmText="Yes"
+        cancelText="No"
+        confirmClass="bg-green-500"
+        cancelClass="bg-red-500"
+      >
         <p className="mb-4">You are about to leave LuminAI. Do you want to proceed?</p>
       </Modal>
     </div>
@@ -22,4 +30,3 @@ const ApplyButton = () => {
 };
 
 export default ApplyButton;
-

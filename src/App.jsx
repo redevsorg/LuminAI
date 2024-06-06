@@ -1,6 +1,5 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import Header from './components/header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Syllabus from './pages/Syllabus';
@@ -8,6 +7,7 @@ import Staff from './pages/Staff';
 import Inquiry from './pages/Inquiry';
 import './App.css';
 import './styles/tailwind.css';
+import Header from './components/Header';
 
 
 const App = () => (
