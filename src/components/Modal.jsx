@@ -22,6 +22,7 @@ const Modal = ({ isOpen, onClose, onConfirm, children, confirmText = 'OK', cance
           <button onClick={onConfirm} className={`${confirmClass} text-white py-2 px-4 rounded hover:${confirmClass}-hover`}>
             {confirmText}
           </button>
+          if()
           <button onClick={onClose} className={`${cancelClass} text-white py-2 px-4 rounded hover:${cancelClass}-hover`}>
             {cancelText}
           </button>

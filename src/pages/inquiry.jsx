@@ -26,9 +26,6 @@ const Inquiry = () => (
         <textarea name="message" className="w-full p-2 border border-gray-300 rounded"></textarea>
       </div>
       <ContactButton/>
-      {/* <Modal isOpen={isOpen} onClose={closeModal} onConfirm={handleConfirmClick}>
-        <p className="mb-4">We have received your message. You will hear back from our team soon.</p>
-      </Modal> */}
     </form>
   </div>
 );
