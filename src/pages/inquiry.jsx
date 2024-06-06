@@ -2,7 +2,7 @@ import React from 'react';
 // import useModal from '../hooks/useModal';
 // import Modal from '../components/Modal';
 // import {Route} from 'react-router-dom';
-import ContactButton from '../components/ContactButton';
+import ContactForm from '../components/ContactForm';
 
 const Inquiry = () => (
   // const { isOpen, openModal, closeModal } = useModal();
@@ -14,18 +14,8 @@ const Inquiry = () => (
     <h2 className="text-2xl font-bold mb-4">Contact us!</h2>
     <form className="space-y-4">
       <div>
-        <label className="block mb-1">Name:</label>
-        <input type="text" name="name" className="w-full p-2 border border-gray-300 rounded" />
+      <ContactForm/>
       </div>
-      <div>
-        <label className="block mb-1">Email:</label>
-        <input type="email" name="email" className="w-full p-2 border border-gray-300 rounded" />
-      </div>
-      <div>
-        <label className="block mb-1">Message:</label>
-        <textarea name="message" className="w-full p-2 border border-gray-300 rounded"></textarea>
-      </div>
-      <ContactButton/>
     </form>
   </div>
 );

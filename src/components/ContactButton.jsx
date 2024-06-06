@@ -1,7 +1,6 @@
 import React from 'react';
 import useModal from '../hooks/useModal';
 import Modal from './Modal';
-import ContactForm from './ContactForm';
 
 const ContactButton = () => {
   const { isOpen, openModal, closeModal } = useModal();
@@ -12,7 +11,6 @@ const ContactButton = () => {
 
   return (
     <div>
-      <ContactForm/>
       <button onClick={openModal} type="submit" 
       className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700">
         Submit

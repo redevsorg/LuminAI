@@ -1,51 +1,60 @@
 import React, { useState } from 'react';
 import Modal from './Modal';
+import useModal from '../hooks/useModal';
 
 const ContactForm = () => {
-  const [formData, setFormData] = useState({
-    email: '',
-    heardFrom: '',
-    questionType: '',
-    additionalInfo: '',
-    course: ''
-  });
-  const [errors, setErrors] = useState({});
-  const [isModalOpen, setIsModalOpen] = useState(false);
+    const { isOpen, openModal, closeModal } = useModal();     
+    
+    const [formData, setFormData] = useState({
+        email: '',
+        heardFrom: '',
+        questionType: '',
+        additionalInfo: '',
+        course: ''
+    });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
+    const [errors, setErrors] = useState({});
 
-  const validate = () => {
-    let tempErrors = {};
-    if (!formData.email || !/\S+@\S+\.\S+/.test(formData.email)) {
-      tempErrors.email = 'Valid email is required';
-    }
-    if (!formData.heardFrom) {
-      tempErrors.heardFrom = 'Please select how you heard about us';
-    }
-    if (!formData.questionType) {
-      tempErrors.questionType = 'Please select the type of question';
-    }
-    setErrors(tempErrors);
-    return Object.keys(tempErrors).length === 0;
-  };
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (validate()) {
-      setIsModalOpen(true);
-    }
-  };
+    const validate = () => {
+        let tempErrors = {};
+        if (!formData.email || !/\S+@\S+\.\S+/.test(formData.email)) {
+        tempErrors.email = 'Valid email is required';
+        }
+        if (!formData.heardFrom) {
+        tempErrors.heardFrom = 'Please select how you heard about us';
+        }
+        if (!formData.questionType) {
+        tempErrors.questionType = 'Please select the type of question';
+        }
+        setErrors(tempErrors);
+        return Object.keys(tempErrors).length === 0;
+    };
 
-  const handleConfirmClick = () => {
-    window.location.href = 'https://forms.gle/RaW38zynf2p515Ua8';
-  };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (validate()) {
+            openModal();
+        }
+    };
+
+    const handleConfirmClick = () => {
+        window.location.href = 'https://forms.gle/RaW38zynf2p515Ua8';
+    };
 
   return (
     <div>
       <form onSubmit={handleSubmit} className="space-y-4">
+        <div>
+            <label className="block mb-1">
+                Name:
+            </label>
+            <input type="text" name="name" className="w-full p-2 border border-gray-300 rounded" />
+        </div>
         <div>
           <label className="block text-gray-700">Email</label>
           <input
@@ -53,17 +62,19 @@ const ContactForm = () => {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className="mt-1 block w-full border-gray-300 rounded-md"
+            className="mt-1 block w-full border-gray-300 rounded-md p-2 border"
           />
           {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
         </div>
+
+        "// Select where user heard us from"
         <div>
           <label className="block text-gray-700">How did you hear about us?</label>
           <select
             name="heardFrom"
             value={formData.heardFrom}
             onChange={handleChange}
-            className="mt-1 block w-full border-gray-300 rounded-md"
+            className="mt-1 block w-full border p-2 border-gray-300 rounded-md"
           >
             <option value="">Select an option</option>
             <option value="internet search">Internet Search</option>
@@ -84,13 +95,16 @@ const ContactForm = () => {
           )}
           {errors.heardFrom && <p className="text-red-500 text-sm">{errors.heardFrom}</p>}
         </div>
+
+        "// Select the type of question for inquiry, and change the message flex box if necessary"
+
         <div>
           <label className="block text-gray-700">Type of question</label>
           <select
             name="questionType"
             value={formData.questionType}
             onChange={handleChange}
-            className="mt-1 block w-full border-gray-300 rounded-md"
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
           >
             <option value="">Select a type</option>
             <option value="improve">Help us improve!</option>
@@ -110,18 +124,26 @@ const ContactForm = () => {
           )}
           {errors.questionType && <p className="text-red-500 text-sm">{errors.questionType}</p>}
         </div>
+        
         <div>
-          <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700">
+        
+        <label className="block mb-1">Message:</label>
+        <textarea name="message" className="w-full p-2 border border-gray-300 rounded"></textarea>
+      
+        </div>
+        
+        
+        <div>
+          <button onClick={openModal} type="submit"
+            className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700">
             Submit
           </button>
         </div>
       </form>
       <Modal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
+        isOpen={isOpen}
+        onClose={closeModal}
         onConfirm={handleConfirmClick}
-        confirmText="OK"
-        cancelText="Cancel"
       >
         <p className="mb-4">We have received your message. You will hear back from our team soon.</p>
       </Modal>
@@ -130,3 +152,6 @@ const ContactForm = () => {
 };
 
 export default ContactForm;
+
+
+      
