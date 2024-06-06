@@ -4,7 +4,7 @@ import useModal from '../hooks/useModal';
 
 const ContactForm = () => {
     const { isOpen, openModal, closeModal } = useModal();     
-    
+
     const [formData, setFormData] = useState({
         email: '',
         heardFrom: '',
@@ -39,6 +39,9 @@ const ContactForm = () => {
         e.preventDefault();
         if (validate()) {
             openModal();
+        }
+        else {
+            // create a new error model with only ok (useModal) based on the error message.
         }
     };
 
@@ -134,8 +137,7 @@ const ContactForm = () => {
         
         
         <div>
-          <button onClick={openModal} type="submit"
-            className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700">
+          <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700">
             Submit
           </button>
         </div>
