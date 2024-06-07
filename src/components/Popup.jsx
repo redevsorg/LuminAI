@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import './Popup.css';
+import '../styles/Popup.css';
 
-const Popup = () => {
+const Popup = (programName) => {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
@@ -21,7 +21,7 @@ const Popup = () => {
             <div className="popup-container">
                 <div className="popup">
                     <button className="close-button" onClick={handleClose}>×</button>
-                    <p>Hey there, want to help make our blog better?</p>
+                    {/* <p>Hey there, it seems like you are interested in our ${programName} Program. </p> */}
                     <div className="popup-options">
                         <label>
                             <input type="checkbox" />

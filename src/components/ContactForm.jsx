@@ -1,8 +1,9 @@
 import React, { useState, useRef } from 'react';
 import Modal from './Modal';
 import useModal from '../hooks/useModal';
-import emailjs from 'emailjs-com';
-import Toast from './ToastNotif';
+import sendEmails from '../services/emailService';
+import showNotif from './ToastNotif';
+import { Toaster } from 'sonner';
 
 const ContactForm = () => {
     const { isOpen, openModal, closeModal } = useModal();     
@@ -45,14 +46,17 @@ const ContactForm = () => {
         }
         else {
             const errorMessages = Object.values(errors).join(', ');
-            <Toast richColors message={`Please fill in all required fields: ${errorMessages}`} type="error" visible={true}/>
+            <Toaster richColors/>
+            showNotif(`Please fill in all required fields: ${errorMessages}`, "error");
         }
+
+
     };
     
 
     const sendEmail = () => {
-        window.location.href = 'https://forms.gle/RaW38zynf2p515Ua8';
-        // send an email to admin@luminai.com
+        sendEmails(formData);
+        closeModal();
     };
 
   return (
@@ -94,8 +98,10 @@ const ContactForm = () => {
                 <option value="reddit">Reddit</option>
                 <option value="discord">Discord</option>
                 <option value="school announcement">School Announcement</option>
+                <option value="alumni">Alumni</option>
                 <option value="other">Other (Please Specify)</option>
             </select>
+
             {formData.heardFrom === 'other' && (
                 <input
                 type="text"
@@ -103,14 +109,23 @@ const ContactForm = () => {
                 placeholder="Please specify"
                 value={formData.additionalInfo}
                 onChange={handleChange}
-                className="mt-1 block w-full border-gray-300 rounded-md border p-2"
+                className="mt-2 block w-full border-gray-300 rounded-md border p-2"
+                required
+                />
+            )}
+            
+            {formData.heardFrom === 'alumni' && (
+                <input type='text'
+                name="additionalInfo"
+                placeholder="Alumni Name & Cohort"
+                value={formData.additionalInfo}
+                onChange={handleChange}
+                className="mt-2 block w-full border-gray-300 rounded-md border p-2"
                 required
                 />
             )}
             {errors.heardFrom && <p className="text-red-500 text-sm">{errors.heardFrom}</p>}
         </div>
-
-    "// Select the type of question for inquiry, and change the message flex box if necessary"
 
         <div>
             <label className="block text-gray-700">Type of question</label>

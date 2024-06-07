@@ -1,30 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
-import App from './App';
 import './styles/App.css';
 import reportWebVitals from './reportWebVitals';
 import './styles/tailwind.css';
-
-
+import SmoothScroll from './SmoothScroll';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <React.StrictMode>
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
-      <App />
-    </BrowserRouter>
+    <SmoothScroll/>
   </React.StrictMode>
 );
-
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(
-//   <React.StrictMode>
-//     <BrowserRouter basename={process.env.PUBLIC_URL}>
-//       <App />
-//     </BrowserRouter>
-//   </React.StrictMode>
-// );
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
