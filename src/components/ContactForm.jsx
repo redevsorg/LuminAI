@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Modal from './Modal';
 import useModal from '../hooks/useModal';
 import emailjs from 'emailjs-com';
+import Toast from './ToastNotif';
 
 const ContactForm = () => {
     const { isOpen, openModal, closeModal } = useModal();     
 
+    const form = useRef();
     const [formData, setFormData] = useState({
         email: '',
         heardFrom: '',
@@ -24,13 +26,13 @@ const ContactForm = () => {
     const validate = () => {
         let tempErrors = {};
         if (!formData.email || !/\S+@\S+\.\S+/.test(formData.email)) {
-        tempErrors.email = 'Valid email is required';
+            tempErrors.email = 'Valid email is required';
         }
         if (!formData.heardFrom) {
-        tempErrors.heardFrom = 'Please select how you heard about us';
+            tempErrors.heardFrom = 'Please select how you heard about us';
         }
         if (!formData.questionType) {
-        tempErrors.questionType = 'Please select the type of question';
+            tempErrors.questionType = 'Please select the type of question';
         }
         setErrors(tempErrors);
         return Object.keys(tempErrors).length === 0;
@@ -42,23 +44,25 @@ const ContactForm = () => {
             openModal();
         }
         else {
-            // create a new error model with only ok (useModal) based on the error message.
+            const errorMessages = Object.values(errors).join(', ');
+            <Toast richColors message={`Please fill in all required fields: ${errorMessages}`} type="error" visible={true}/>
         }
     };
+    
 
-    const handleConfirmClick = () => {
+    const sendEmail = () => {
         window.location.href = 'https://forms.gle/RaW38zynf2p515Ua8';
         // send an email to admin@luminai.com
     };
 
   return (
     <div>
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form ref={form} onSubmit={handleSubmit} className="space-y-4">
         <div>
             <label className="block mb-1">
                 Name
             </label>
-            <input type="text" name="name" className="w-full p-2 border border-gray-300 rounded" placeholder="Enter your name" required/>
+            <input type="text" name="name" className="w-full p-2 border border-gray-300 rounded" placeholder="Enter your name"/>
         </div>
     
         <div>
@@ -71,7 +75,7 @@ const ContactForm = () => {
                 value={formData.email}
                 onChange={handleChange}
                 className="mt-1 block w-full border-gray-300 rounded-md p-2 border"
-                placeholder="Enter your full email" required
+                placeholder="Enter your full email"
             />
             {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
         </div>
@@ -84,7 +88,6 @@ const ContactForm = () => {
                 value={formData.heardFrom}
                 onChange={handleChange}
                 className="mt-1 block w-full border p-2 border-gray-500 rounded-md"
-                required
             >
                 <option value="">Select an option</option>
                 <option value="internet search">Internet Search</option>
@@ -116,7 +119,6 @@ const ContactForm = () => {
                 value={formData.questionType}
                 onChange={handleChange}
                 className="mt-1 block w-full p-2 border border-gray-500 rounded-md"
-                required
             >
                 <option value="">Select a question</option>
                 <option value="improve">Help us improve!</option>
@@ -146,7 +148,7 @@ const ContactForm = () => {
                 <label className="block mb-1 text-gray-700">
                     Subject
                 </label>
-                <input name="subject" className="w-full p-2 border border-gray-300 rounded" placeholder="Enter your subject" required></input>
+                <input name="subject" className="w-full p-2 border border-gray-300 rounded" placeholder="Enter your subject"></input>
             </div>
         )}    
         </div>    
@@ -156,7 +158,7 @@ const ContactForm = () => {
             <label className="block mb-1">
                 Message
             </label>
-            <textarea name="message" className="w-full p-2 border border-gray-300 rounded" placeholder="Enter your message" required></textarea>
+            <textarea name="message" className="w-full p-2 border border-gray-300 rounded" placeholder="Enter your message"></textarea>
         </div>
     
 
@@ -170,7 +172,7 @@ const ContactForm = () => {
     <Modal
         isOpen={isOpen}
         onClose={closeModal}
-        onConfirm={handleConfirmClick}>
+        onConfirm={sendEmail}>
         <p className="mb-4">
             We have received your message. You will hear back from our team soon.
         </p>

@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.popup-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.popup {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 16px; /* Rounded rectangle shape */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    position: relative;
+    width: 300px;
+    animation: bounceIn 1s, glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 10px rgba(128, 0, 128, 0.4);
+    }
+    to {
+        box-shadow: 0 0 20px rgba(128, 0, 128, 1);
+    }
+}
+
+.close-button {
+    background: none;
+    border: none;
+    font-size: 16px;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    cursor: pointer;
+}
+
+.popup-options {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.popup-options label {
+    display: flex;
+    align-items: center;
+}
+
+.popup-options input {
+    margin-right: 5px;
+}
