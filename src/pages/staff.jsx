@@ -9,6 +9,19 @@ const Staff = () => (
     </h2>
     <p>Information about our experienced instructors and staff members.</p>
     
+    <div>
+      NPO Board Members
+      President
+      Director of Coursework/
+      Director of Logistics
+      Director of Management
+      Director of Mentorship
+      
+      (term for a part of a NPO, per school)
+
+    </div>
+
+
   </div>
 );
 

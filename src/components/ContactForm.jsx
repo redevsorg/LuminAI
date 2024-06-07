@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Modal from './Modal';
 import useModal from '../hooks/useModal';
+import emailjs from 'emailjs-com';
 
 const ContactForm = () => {
     const { isOpen, openModal, closeModal } = useModal();     
@@ -139,6 +140,18 @@ const ContactForm = () => {
         {errors.questionType && <p className="text-red-500 text-sm">{errors.questionType}</p>}
         </div>
         
+        <div>
+        {(formData.questionType === 'course/camp' || formData.questionType === 'improve') && (
+            <div>
+                <label className="block mb-1 text-gray-700">
+                    Subject
+                </label>
+                <input name="subject" className="w-full p-2 border border-gray-300 rounded" placeholder="Enter your subject" required></input>
+            </div>
+        )}    
+        </div>    
+
+
         <div>    
             <label className="block mb-1">
                 Message
