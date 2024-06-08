@@ -5,6 +5,7 @@
 /.pnp
 .pnp.js
 /node_modules/gh-pages
+.github/workflows/deploy_workflow.sh
 
 # testing
 /coverage
