@@ -1,4 +1,4 @@
-This is Lumin AI's website.
+This is Lumin AI's website, created using Next.js and React.
 
 We are an organization to help students learn about AI.
 
