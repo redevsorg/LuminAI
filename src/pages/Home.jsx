@@ -5,6 +5,7 @@ import '../styles/App.css';
 import { Toaster } from 'sonner';
 import showNotif from '../components/ToastNotif';
 
+
 const Home = () => (
   <div data-scroll-section id='main-container'>
     

@@ -1,0 +1,49 @@
+[data-aos] {
+    opacity: 0;
+    transition-property: opacity, transform;
+  }
+  
+  [data-aos].aos-animate {
+    opacity: 1;
+  }
+  
+  [data-aos][data-aos-easing="ease-in-out"] {
+    transition-timing-function: ease-in-out;
+  }
+  
+  [data-aos][data-aos-duration] {
+    transition-duration: var(--aos-duration);
+  }
+  
+  [data-aos][data-aos-delay] {
+    transition-delay: var(--aos-delay);
+  }
+  
+  /* Example of specific animation keyframes */
+  @keyframes fade-up {
+    from {
+      transform: translate3d(0, 50%, 0);
+      opacity: 0;
+    }
+    to {
+      transform: translate3d(0, 0, 0);
+      opacity: 1;
+    }
+  }
+  
+  [data-aos="fade-up"].aos-animate {
+    animation: fade-up var(--aos-duration) ease-in-out forwards;
+  }
+  
+
+  [data-aos].aos-animate {
+    opacity: 1;
+  }
+  
+  [data-aos="fade-up"] {
+    transform: translate3d(0, 100px, 0);
+  }
+  
+  [data-aos="fade-up"].aos-animate {
+    transform: translate3d(0, 0, 0);
+  }
