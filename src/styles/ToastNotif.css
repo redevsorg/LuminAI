@@ -3,35 +3,57 @@
 @tailwind utilities;
 
 @keyframes countdown {
-    from { width: 100%; }
-    to { width: 0%; }   
-  }
-  
+    from {width:100%;}
+    to {width:0%;}
+}
+
+@keyframes fadeout{
+    0% {opacity: 1;}
+    50% {opacity: 1;}
+    75% {opacity:0.75;}
+    100%{opacity: 0;}
+}
   /* Light Mode Styles */
   .toast-light {
     background-color: #fff;
     color: #000;
+    position: relative;
   }
   
   .toast-light::after{
-    background-color: linear-gradient(to right, #00b09b, #96c93d);
+    background: linear-gradient(to right, #00b09b, #96c93d);
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100px;
+    animation: countdown 3s linear forwards;
   }
-  
+
   /* Dark Mode Styles */
   .toast-dark {
     background-color: #333;
     color: #fff;
+    position: relative;
   }
   
   .toast-dark::after{
-    background-color: linear-gradient(to right #ff7700, #9c00c3);
-  }
+    background: linear-gradient(to right #ff7700, #9c00c3);
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100px;
+    animation: countdown 3s linear forwards;  
+}
 
   /* Countdown Bar */
   .toast-light::after, .toast-dark::after {
     content: '';
-    display: block;
-    height: 5px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100px;
     animation: countdown 2s linear forwards;
   }
   

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import '../styles/Button.css';
 
 const Modal = ({modalType = 'Confirm', isOpen, onClose, onConfirm, children, confirmText = 'OK', cancelText = 'Cancel', confirmClass = 'bg-blue-500', cancelClass = 'bg-gray-500' }) => {
   const [active, setActive] = useState(false);
@@ -20,7 +21,7 @@ const Modal = ({modalType = 'Confirm', isOpen, onClose, onConfirm, children, con
         <div className={`bg-white p-6 rounded shadow-lg transform transition-transform duration-300 ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
           {children}
           <div className="flex justify-between mt-4">
-            <button onClick={onConfirm} className={`${confirmClass} text-white py-2 px-4 items-center justify-center rounded hover:${confirmClass}-hover`}>
+            <button onClick={onConfirm} className={`${confirmClass} button text-white py-2 px-4 items-center justify-center rounded hover:${confirmClass}-hover`}>
               {confirmText}
             </button>
           </div>
@@ -35,10 +36,10 @@ const Modal = ({modalType = 'Confirm', isOpen, onClose, onConfirm, children, con
       <div className={`bg-white p-6 rounded shadow-lg transform transition-transform duration-300 ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
         {children}
         <div className="flex justify-between mt-4">
-          <button onClick={onConfirm} className={`${confirmClass} text-white py-2 px-4 rounded hover:${confirmClass}-hover`}>
+          <button onClick={onConfirm} className={`${confirmClass} button text-white py-2 px-4 rounded hover:${confirmClass}-hover`}>
             {confirmText}
           </button>
-          <button onClick={onClose} className={`${cancelClass} text-white py-2 px-4 rounded hover:${cancelClass}-hover`}>
+          <button onClick={onClose} className={`${cancelClass} button text-white py-2 px-4 rounded hover:${cancelClass}-hover`}>
             {cancelText}
           </button>
         </div>

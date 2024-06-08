@@ -1,6 +1,7 @@
 import React from 'react';
 import useModal from '../hooks/useModal';
 import Modal from './Modal';
+import '../styles/Button.css';
 
 const ApplyButton = () => {
   const { isOpen, openModal, closeModal } = useModal();
@@ -11,7 +12,7 @@ const ApplyButton = () => {
 
   return (
     <div className="text-center mt-8">
-      <button onClick={openModal} className="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-700">
+      <button onClick={openModal} className="button text-white py-2 px-4 text-l rounded bg-green-500 hover:bg-green-600">
         Apply Now!
       </button>
       <Modal

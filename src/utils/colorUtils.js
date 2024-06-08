@@ -13,7 +13,7 @@ export const hexToRgb = (hex) => {
   };
   
   // Function to darken a color by a percentage
-  export const darkenColor = (hex, percent) => {
+  const darkenColor = (hex, percent) => {
     const [r, g, b] = hexToRgb(hex);
     const newR = Math.max(0, Math.min(255, Math.floor(r * (1 - percent))));
     const newG = Math.max(0, Math.min(255, Math.floor(g * (1 - percent))));
@@ -21,3 +21,18 @@ export const hexToRgb = (hex) => {
     return rgbToHex(newR, newG, newB);
   };
   
+  const DarkenButton = (initialColor, customClass) => {
+    const [color, setColor] = useState(initialColor);
+    const [hoverColor, setHoverColor] = useState(darkenColor(initialColor, 0.2));
+
+    return(
+      <button className={{customClass}, 'px-4 py-2 text-white rounded'} 
+      style={{backgroundColor: color}}
+      onMouseEnter={setColor(hoverColor)} 
+    )
+  }
+
+
+  function newColor(initialColor){
+    return darkenColor(initialColor, 0.2);
+  }

@@ -17,6 +17,35 @@ code {
     monospace;
 }
 
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #ffffff; /* Ensure the background is solid */
+  padding: 1rem 2rem; /* Adjust padding as needed */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: add shadow for better visibility */
+}
+
+/* Add top padding to main content equal to the header height */
+main {
+  padding-top: calc(2rem + 2rem); /* Adjust based on header height */
+  min-height: 100vh; /* Ensure main container takes up full viewport height */
+  overflow: hidden; /* Prevent unwanted scrollbars */
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Ensure the initial container takes up the full viewport height */
+  padding: 0 1rem;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+
 /* General Animations */
 @keyframes buttonFadeIn {
   0% {
@@ -82,6 +111,7 @@ code {
       color: lab(from color l+200 a b);
     }
 } */
+
 
 @keyframes bounceIn {
   0%, 20%, 40%, 60%, 80%, 100% {

@@ -11,7 +11,7 @@ const showNotif = (message, type) => {
     type: type,
     position: 'top-right',
     // Add custom CSS class for countdown bar
-    style: { animation: 'countdown 2s linear forwards' },
+    style: { animation: 'fadeout 4s forwards' },
   });
 };
 
