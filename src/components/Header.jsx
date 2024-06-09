@@ -7,7 +7,7 @@ import getMode from '../utils/getMode';
 
 const Header = () => (
   <>
-  <div class="scroll-watcher"></div>
+  <div class="scroll-watcher"/>
     <div><header className={"bg-blue-600 text-white p-4" + (getMode() === "dark") ? "header-dark" : "header-light"} 
     style={{ opacity: 0, transition: 'opacity 0.5s ease-in-out' }}>
       <div className="container mx-auto flex justify-between items-center">

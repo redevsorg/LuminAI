@@ -43,6 +43,7 @@ import Aos from 'locomotive-aos';
 import './styles/Aos.css'; // Import AOS styles
 import 'locomotive-scroll/dist/locomotive-scroll.css';
 import Header from './components/Header';
+import '../styles/ScrollBar.css';
 
 const SmoothScroll = () => {
   useEffect(() => {

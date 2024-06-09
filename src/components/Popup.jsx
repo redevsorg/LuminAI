@@ -68,7 +68,7 @@ const Popup = () => {
                     onMouseLeave={() => document.querySelector('.popup').classList.add('popup-glow')}
                 >
                     <button className="close-button" onClick={handleClose}>×</button>
-                    <p>Hey there, want to help make our blog better?</p>
+                    <p>Hey there, want to help make our website better?</p>
                     <div className="popup-options">
                         <label>
                             <input type="checkbox" />

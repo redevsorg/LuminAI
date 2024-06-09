@@ -28,7 +28,7 @@ export const hexToRgb = (hex) => {
     return(
       <button className={{customClass}, 'px-4 py-2 text-white rounded'} 
       style={{backgroundColor: color}}
-      onMouseEnter={setColor(hoverColor)} 
+      onMouseEnter={setColor(hoverColor)} />
     )
   }
 
