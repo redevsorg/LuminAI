@@ -36,13 +36,13 @@
 // export default SmoothScroll;
 
 import React, { useEffect } from 'react';
-import { BrowserRouter, Link } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import LocomotiveScroll from 'locomotive-scroll';
 import Aos from 'locomotive-aos';
 import './styles/Aos.css'; // Import AOS styles
 import 'locomotive-scroll/dist/locomotive-scroll.css';
-import getMode from './utils/getMode';
+import Header from './components/Header';
 
 const SmoothScroll = () => {
   useEffect(() => {
@@ -79,23 +79,10 @@ const SmoothScroll = () => {
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <div id="root">
-        <div style={{
-            backgroundColor: getMode() === "dark" ? "#18181B" : "#f3f3f3"
-          }}>
-          <header style={{ opacity: 0, transition: 'opacity 0.5s ease-in-out' }}>
-            <nav>
-              <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/syllabus">Syllabus</Link></li>
-                <li><Link to="/staff">Staff</Link></li>
-                <li><Link to="/inquiry">Inquiry</Link></li>
-              </ul>
-            </nav>
-          </header>
-          <main id="main-container" data-scroll-container>
-            <App />
-          </main>
-        </div>
+        <Header/>
+        <main id="main-container" data-scroll-container>
+          <App />
+        </main>
       </div>
     </BrowserRouter>
   );

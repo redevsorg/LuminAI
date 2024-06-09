@@ -2,11 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/App.css';
 import '../styles/ScrollBar.css'
+import '../styles/Header.css';
+import getMode from '../utils/getMode';
 
 const Header = () => (
   <>
   <div class="scroll-watcher"></div>
-    <div><header className="bg-blue-600 text-white p-4">
+    <div><header className={"bg-blue-600 text-white p-4" + (getMode() === "dark") ? "header-dark" : "header-light"} 
+    style={{ opacity: 0, transition: 'opacity 0.5s ease-in-out' }}>
       <div className="container mx-auto flex justify-between items-center">
         <h1 className="text-2xl">LuminAI Innovate Scholars</h1>
         <nav className="mt-2">

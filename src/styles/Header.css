@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.header-light{
+    background: linear-gradient(to top, rgba(255, 0, 255, 100) 0%, rgba(255, 0, 255, 50) 100%);
+};
+
+.header-dark{
+    background: linear-gradient(to top, rgba(0, 0, 0, 90) 0%, rgba(255, 255, 255, 50) 100%);
+};
+
+.header-dark, .header-light{
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    height: 80px;
+    animation: linear;
+    animation-timeline: scroll(y);
+    scale: 0, 1;
+    transform-origin: left;
+}

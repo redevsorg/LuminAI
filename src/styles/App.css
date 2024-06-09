@@ -30,7 +30,6 @@ header {
 
 /* Add top padding to main content equal to the header height */
 main {
-  padding-top: calc(2rem + 2rem); /* Adjust based on header height */
   min-height: 100vh; /* Ensure main container takes up full viewport height */
   overflow: hidden; /* Prevent unwanted scrollbars */
 }
@@ -132,9 +131,11 @@ main {
   }
 }
 
+
+/* header */
 .hidden{
   opacity: 0;
-  transition: all 1s;
+   transition: all 1s;
 }
 
 @media(prefers-reduced-motion) {
@@ -145,4 +146,6 @@ main {
 
 .show{
   opacity: 1;
+  background: linear-gradient(to top, rgba(255, 255, 255, 100) 0%, rgba(255, 255, 255, 50) 100%);
+
 }
