@@ -12,4 +12,4 @@ The bootcamp will also include guest speakers that have work and research experi
 
 **Tech used:** React.js, Tailwind.css, Next.js
 
-**Front-End:** Github-Pages
+**Front-End:** github-pages
