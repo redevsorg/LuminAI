@@ -1,6 +1,4 @@
-This is Lumin AI's website, created using Next.js and React.
-
-We are an organization to help students learn about AI.
+This is the website for the nonprofit organization **LuminAI**. We devote to creating free courses and bootcamps to help students learn about AI and Machine Learning (ML) algorithms.
 
 Are you a high schooler and interested in learning about AI? Do you want to delve into the complex world of AI models and gain technical expertise? Look no further and join the AI Innovate Scholars Bootcamp hosted by the RAY4Students & LuminAI nonprofit! 
 
@@ -10,3 +8,6 @@ The aim of this bootcamp is to introduce AI models conceptually and teach the me
 
 The bootcamp will also include guest speakers that have work and research experience with AI and from the industry. 
 
+## How It's Made:
+
+**Tech used:** React, Tailwind
