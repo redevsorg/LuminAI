@@ -6,12 +6,12 @@ import getMode from '../utils/getMode';
 const showNotif = (message, type) => {
   const mode = getMode();
   toast(message, {
-    className: `toast-${mode}`,
+    className: `toast-${mode} toaster-container`,
     duration: 2000,
     type: type,
     position: 'top-right',
     // Add custom CSS class for countdown bar
-    style: { animation: 'fadeout 4s forwards' },
+    style: { animation: 'fadeout 4s ease-in-out forwards' },
   });
 };
 

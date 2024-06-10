@@ -10,7 +10,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* @apply bg-slate-900 text-slate-400 transition-colors duration-300; */
 }
+/* 
+body:hover{
+  @apply bg-teal-300 text-teal-900;
+} */
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -32,6 +37,7 @@ header {
 main {
   min-height: 100vh; /* Ensure main container takes up full viewport height */
   overflow: hidden; /* Prevent unwanted scrollbars */
+  
 }
 
 

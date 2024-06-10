@@ -12,7 +12,11 @@ const ApplyButton = () => {
 
   return (
     <div className="text-center mt-8">
-      <button onClick={openModal} className="button text-white py-2 px-4 text-l rounded bg-green-500 hover:bg-green-600">
+      <button onClick={openModal} 
+      className="button styled-button text-white py-2 px-4 text-l hover:bg-green-600"
+      style={{animation: "bounceIn 1s"}}> 
+      {/* add aos animation later */}
+      
         Apply Now!
       </button>
       <Modal

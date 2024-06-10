@@ -8,10 +8,8 @@
 }
 
 @keyframes fadeout{
-    0% {opacity: 1;}
-    50% {opacity: 1;}
-    75% {opacity:0.75;}
-    100%{opacity: 0;}
+    0% { opacity: 1; }
+    100% { opacity: 0; }
 }
   /* Light Mode Styles */
   .toast-light {
@@ -57,3 +55,9 @@
     animation: countdown 2s linear forwards;
   }
   
+  .toaster-container {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1000;
+  }

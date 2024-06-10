@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 .header-light{
-    background: linear-gradient(to top, rgba(255, 0, 255, 100) 0%, rgba(255, 0, 255, 50) 100%);
+    background-color: linear-gradient(to top, rgba(255, 0, 255, 100) 0%, rgba(255, 0, 255, 50) 100%);
 };
 
 .header-dark{
-    background: linear-gradient(to top, rgba(0, 0, 0, 90) 0%, rgba(255, 255, 255, 50) 100%);
+    background-color: linear-gradient(to top, rgba(0, 0, 0, 90) 0%, rgba(255, 255, 255, 50) 100%);
 };
 
 .header-dark, .header-light{
@@ -22,3 +22,72 @@
     scale: 0, 1;
     transform-origin: left;
 }
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(1%);
+  }
+}
+
+.header {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.header-visible {
+  opacity: 1;
+}
+
+
+/* scroll-watcher */
+progress-bar{
+  height: 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  z-index: 9999;
+  transform-origin: left;
+  /* animation: scroll-watcher linear; */
+  /* animation-timeline: scroll(y); */
+  /* scale: 0 1; */
+  transition: width 0.25s ease-out, opacity 0.5s ease-in-out;
+  /* animation: fadeInLeft 0.5s forwards; */
+  margin-bottom: 5px;
+}
+
+.scroll-watcher-light{
+    background: linear-gradient(to right, #2ecfe1, #96c93d);
+  }
+  
+.scroll-watcher-dark{
+  background: linear-gradient(to right, #ff7700, #9c00c3);
+}
+
+/* @keyframes scroll-watcher {
+    to { scale: 1 1;}
+} */
+
+/* @keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+} */
+
+/* background: linear-gradient(to right, #e66465, #9198e5); */
+/* 
+background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%); */

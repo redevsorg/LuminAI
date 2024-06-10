@@ -56,6 +56,7 @@ const Popup = () => {
     }, []);
 
     const handleClose = () => {
+        
         setIsVisible(false);
     };
 

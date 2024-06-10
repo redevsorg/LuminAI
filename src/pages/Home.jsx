@@ -17,9 +17,9 @@ const Home = () => {
       <div className='flex-container'>
         <div className="p-4 justify-center text-center" style={{ animation: 'textPopIn 0.7s ease-in-out' }}>
           <h2 className="text-2xl font-bold mb-4">Welcome to LuminAI Innovate Scholars</h2>
-          <p className="mb-4">Empowering the next generation of AI innovators through comprehensive bootcamps.</p>
-          <ApplyButton />
+          <p>Empowering the next generation of AI innovators through comprehensive bootcamps.</p>
         </div>
+        <ApplyButton className="mb-4" />
       </div>
       
       <div className="p-4">
