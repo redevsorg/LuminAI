@@ -10,6 +10,6 @@ The bootcamp will also include guest speakers that have work and research experi
 
 ## How It's Made:
 
-**Tech used:** React.js, Tailwind.css, Next.js
+**Tech used:** React.js, Tailwind.css
 
 **Front-End:** github-pages
