@@ -42,14 +42,15 @@ import Home from './pages/Home';
 import Syllabus from './pages/Syllabus';
 import Staff from './pages/Staff';
 import Inquiry from './pages/Inquiry';
-import AOS from 'locomotive-aos';
+import 'aos/dist/aos.css';
+import Aos from 'aos';
 import Popup from './components/Popup';
 
 const Routing = () => {
   useEffect(() => {
-    AOS.init({
+    Aos.init({
       easing: 'ease-in-out',
-      duration: 1300,
+      duration: 1000,
       once: true,
     });
   }, []);
@@ -69,3 +70,4 @@ const Routing = () => {
 };
 
 export default Routing;
+

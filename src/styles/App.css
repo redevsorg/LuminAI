@@ -41,6 +41,17 @@ main {
 }
 
 
+.hidden {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.visible {
+  visibility: visible;
+  pointer-events: auto;
+}
+
+
 .flex-container {
   display: flex;
   flex-direction: column;
