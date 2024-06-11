@@ -3,8 +3,9 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - vite_ver
       - master
+      - vite_ver
+  workflow_dispatch:
 
 jobs:
   build:
@@ -25,9 +26,11 @@ jobs:
       - name: Build the project
         run: npm run build
 
+      - name: List build files (for debugging)
+        run: ls -la ./dist
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
-
