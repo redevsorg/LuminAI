@@ -64,7 +64,7 @@ const Popup = () => {
         isVisible && (
             <div className="popup-container">
                 <div
-                    class="popup popup-glow" style={{animation: "bounceIn 1s"}}
+                    className="popup popup-glow" style={{animation: "bounceIn 1s"}}
                     onMouseEnter={() => document.querySelector('.popup').classList.remove('popup-glow')}
                     onMouseLeave={() => document.querySelector('.popup').classList.add('popup-glow')}
                 >

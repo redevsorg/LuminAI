@@ -5,13 +5,18 @@ import '../styles/App.css';
 import { Toaster } from 'sonner';
 import showNotif from '../components/ToastNotif';
 import getMode from '../utils/getMode';
+import { createFileRoute } from '@tanstack/react-router'
 
-const Home = () => {
+export const Route = createFileRoute('/')({
+  component: Home
+})
+
+function Home() {
   var colorMode = getMode();
   return (
-    <div data-scroll-section id='main-container' 
-    className={(colorMode === "dark") ? "text-white" : "text-black"} 
-    style={{backgroundColor: (colorMode === 'dark') ? "#18181B" : "#f3f3f3"}}
+    <div data-scroll-section id='main-container'
+      className={(colorMode === "dark") ? "text-white" : "text-black"}
+      style={{ backgroundColor: (colorMode === 'dark') ? "#18181B" : "#f3f3f3" }}
     >
 
       <div className='flex-container'>
@@ -21,11 +26,11 @@ const Home = () => {
         </div>
         <ApplyButton className="mb-4" />
       </div>
-      
+
       <div className="p-4">
         <h2 className="text-2xl font-bold mb-4" data-aos="fade-up">Welcome to Lumin AI Innovate Scholars</h2>
         <p className="mb-4" data-aos="fade-up" data-aos-delay="100">Empowering the next generation of AI innovators through comprehensive bootcamps.</p>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4" data-aos="fade-up" data-aos-delay="200">
           <div className="bg-gray-100 p-4 rounded shadow-md">
             <h3 className="text-xl font-bold">Completely Free</h3>
@@ -72,20 +77,18 @@ const Home = () => {
         </div>
 
         <div>
-          <Toaster richColors/>
+          <Toaster richColors />
           <button onClick={() => showNotif('Success! Message sent.', 'success')} className="btn mt-1 p-1 border rounded">
-          Show Success Toast
-        </button>
-        <button onClick={() => showNotif('Failed! Message not sent.', 'error')} className="btn mt-1 p-1 border rounded">
-          Show Error Toast
-        </button>
+            Show Success Toast
+          </button>
+          <button onClick={() => showNotif('Failed! Message not sent.', 'error')} className="btn mt-1 p-1 border rounded">
+            Show Error Toast
+          </button>
 
         </div>
-        
+
 
       </div>
     </div>
   );
-};
-
-export default Home;
+}
