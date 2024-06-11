@@ -21,7 +21,7 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        run: npm install
+        run: npm install --force   # this is due to react 19 causing weird issues
 
       - name: Build the project
         run: npm run build
