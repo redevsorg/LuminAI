@@ -1,18 +1,21 @@
 import React from 'react';
 import { createFileRoute } from '@tanstack/react-router'
 import { Helmet } from 'react-helmet-async';
+import getMode from '../utils/getMode';
 
 export const Route = createFileRoute('/Staff')({
   component: Staff,
 })
 
 function Staff() {
+  var colorMode = getMode();
+  
   return (
     <div data-scroll-section id='main-container'
     className={(colorMode === "dark") ? "text-white" : "text-black"}
     style={{ backgroundColor: (colorMode === 'dark') ? "#18181B" : "#f3f3f3" }}
     >  
-    <Helmet>
+      <Helmet>
         <title>LuminAI - Staff</title>
       </Helmet>
       <div className="p-4 justify-center text-center"

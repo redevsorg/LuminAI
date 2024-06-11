@@ -1,19 +1,24 @@
 import React from 'react';
 import { createFileRoute } from '@tanstack/react-router'
+import getMode from '../utils/getMode';
+import { Helmet } from 'react-helmet-async';
 
 export const Route = createFileRoute('/Syllabus')({
   component: Syllabus,
 })
 
 function Syllabus() {
+  var colorMode = getMode();
+
   return (
     <div data-scroll-section id='main-container'
     className={(colorMode === "dark") ? "text-white" : "text-black"}
     style={{ backgroundColor: (colorMode === 'dark') ? "#18181B" : "#f3f3f3" }}
     >
       <Helmet>
-        <title>LuminAI - Home</title>
+        <title>LuminAI - Syllabus</title>
       </Helmet>
+
       <div className="p-4 justify-center text-center"
         style={{ animation: 'textPopIn 0.7s ease-in-out' }}
       >

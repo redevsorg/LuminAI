@@ -6,6 +6,7 @@
     --glow-color: rgba(128, 0, 128, 1); /* Default max glow color for animation */
     --glow-color-origin: rgba(128, 0, 128, 0.4); /* Glow color before glow animation starts */
     --hover-glow-color: rgb(231, 108, 0); /* Glow color for hover */
+    --background: linear-gradient(135deg, #5e4bef, #db8466);
 }
 
 .popup-container {
@@ -26,7 +27,7 @@
 
 
 .popup {
-    background-color: white;
+    background-color: var(--background);
     border: 1px solid #ddd;
     border-radius: 16px; /* Rounded rectangle shape */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
