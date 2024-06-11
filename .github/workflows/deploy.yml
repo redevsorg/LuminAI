@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - vite_ver
 
 jobs:
   build:

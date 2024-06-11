@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --light-gradient-color: linear-gradient(to right, #2ecfe1, #96c93d);
+  --dark-gradient-color: linear-gradient(to right, #ff7700, #9c00c3);
+  
+}
+
 .header-light{
     background-color: linear-gradient(to top, rgba(255, 0, 255, 100) 0%, rgba(255, 0, 255, 50) 100%);
 };
@@ -17,10 +23,12 @@
     top: 0;
     left: 0;
     height: 80px;
-    animation: linear;
-    animation-timeline: scroll(y);
-    scale: 0, 1;
-    transform-origin: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    transition: background-color 0.5s ease-in-out;
+    animation: fadeInLeft 0.5s forwards;
 }
 
 @keyframes fadeInLeft {
@@ -44,6 +52,18 @@
   opacity: 1;
 }
 
+.hidden {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.visible {
+  visibility: visible;
+  pointer-events: auto;
+  opacity: 1;
+}
+
+
 
 /* scroll-watcher */
 progress-bar{
@@ -63,12 +83,47 @@ progress-bar{
 }
 
 .scroll-watcher-light{
-    background: linear-gradient(to right, #2ecfe1, #96c93d);
+    background: var(--light-gradient-color);
   }
   
 .scroll-watcher-dark{
-  background: linear-gradient(to right, #ff7700, #9c00c3);
+  background: var(--dark-gradient-color);
 }
+
+
+/* header text hover animation */
+
+.header-text-light, .header-text-dark{
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  position: relative;
+}
+
+.header-text-light:after, .header-text-light:after{
+  position: absolute;
+  height: 5px;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  transition: width .3s ease-in-out;
+}
+
+.header-text-light:after{
+  background: var(--light-gradient-color);
+}
+
+.header-text-dark:after {
+  background: var(--dark-gradient-color);
+}
+
+.header-text-light:hover:after, .header-text-dark:hover:after{
+  width: 100%;
+}
+
+
+
+/* deprecated code segements */
 
 /* @keyframes scroll-watcher {
     to { scale: 1 1;}

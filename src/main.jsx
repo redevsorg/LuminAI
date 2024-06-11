@@ -4,6 +4,7 @@ import { RouterProvider, createRouter } from '@tanstack/react-router'
 import { routeTree } from './routeTree.gen'
 import './styles/tailwind.css';
 import './styles/App.css';
+import { HelmetProvider } from 'react-helmet-async';
 
 const router = createRouter({
   routeTree,
@@ -14,8 +15,10 @@ const rootElement = document.getElementById('app')
 if (!rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement)
   root.render(
-    <StrictMode>
-      <RouterProvider router={router} />
-    </StrictMode>,
+    <React.StrictMode>
+      <HelmetProvider>
+        <RouterProvider router={router} />
+      </HelmetProvider>
+    </React.StrictMode>,
   )
 }

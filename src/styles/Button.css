@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+
+:root {
+  --glow-color: rgba(128, 0, 128, 1); /* Default max glow color for animation */
+  --glow-color-origin: rgba(128, 0, 128, 0.4); /* Glow color before glow animation starts */
+  --hover-glow-color: rgb(231, 108, 0); /* Glow color for hover */
+}
+
 .button {
     position: relative;
     display: inline-block;

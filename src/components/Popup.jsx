@@ -50,7 +50,7 @@ const Popup = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             setIsVisible(true);
-        }, 10000); // 30 seconds
+        }, 3000); // 30 seconds
 
         return () => clearTimeout(timer);
     }, []);

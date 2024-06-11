@@ -4,6 +4,7 @@ import React from 'react';
 // import {Route} from 'react-router-dom';
 import ContactForm from '../components/ContactForm';
 import { createFileRoute } from '@tanstack/react-router'
+import { Helmet } from 'react-helmet-async';
 
 export const Route = createFileRoute('/Inquiry')({
   component: Inquiry,
@@ -11,18 +12,21 @@ export const Route = createFileRoute('/Inquiry')({
 
 function Inquiry() {
   return (
-    // const { isOpen, openModal, closeModal } = useModal();
-    // const handleConfirmClick = () => {
-    //   window.location.href = <Route path="/inquiry"/>;
-    // };
-
-    <div className="p-4">
-      <h2 className="text-2xl font-bold mb-4">Contact us!</h2>
-      <form className="space-y-4">
-        <div>
-          <ContactForm />
-        </div>
-      </form>
+    <div data-scroll-section id='main-container'
+    className={(colorMode === "dark") ? "text-white" : "text-black"}
+    style={{ backgroundColor: (colorMode === 'dark') ? "#18181B" : "#f3f3f3" }}
+    >
+      <Helmet>
+        <title>LuminAI - Home</title>
+      </Helmet>
+      <div className="p-4">
+        <h2 className="text-2xl font-bold mb-4">Contact us!</h2>
+        <form className="space-y-4">
+          <div>
+            <ContactForm />
+          </div>
+        </form>
+      </div>
     </div>
   )
 };
