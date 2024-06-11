@@ -1,8 +1,15 @@
-# React + Vite
+This is the website for the nonprofit organization **LuminAI**. We devote to creating free courses and bootcamps to help students learn about AI and Machine Learning (ML) algorithms.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Are you a high schooler and interested in learning about AI? Do you want to delve into the complex world of AI models and gain technical expertise? Look no further and join the AI Innovate Scholars Bootcamp hosted by the RAY4Students & LuminAI nonprofit! 
 
-Currently, two official plugins are available:
+Application link: https://forms.gle/RYGHkuvyyzgru3Qh9 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The aim of this bootcamp is to introduce AI models conceptually and teach the methods on how to program and implement AI models using popular tools such as Tensorflow, PyTorch.
+
+The bootcamp will also include guest speakers that have work and research experience with AI and from the industry. 
+
+## How It's Made:
+
+**Tech used:** React.js, Tailwind.css
+
+**Front-End:** github-pages
