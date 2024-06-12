@@ -27,6 +27,6 @@ function Syllabus() {
       </div>
     </div>
   )
-};
+}
 
 export default Syllabus;

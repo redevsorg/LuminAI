@@ -9,27 +9,14 @@
 }
 
 .header-light{
-    background-color: linear-gradient(to top, rgba(255, 0, 255, 100) 0%, rgba(255, 0, 255, 50) 100%);
+    background: linear-gradient(to top, #fff, #fff);
+    
 };
 
 .header-dark{
-    background-color: linear-gradient(to top, rgba(0, 0, 0, 90) 0%, rgba(255, 255, 255, 50) 100%);
+    background: var(--dark-gradient-color);
 };
 
-.header-dark, .header-light{
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-    top: 0;
-    left: 0;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-    transition: background-color 0.5s ease-in-out;
-    animation: fadeInLeft 0.5s forwards;
-}
 
 @keyframes fadeInLeft {
   from {
@@ -42,28 +29,6 @@
     transform: scaleX(1%);
   }
 }
-
-.header {
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.header-visible {
-  opacity: 1;
-}
-
-.hidden {
-  visibility: hidden;
-  pointer-events: none;
-}
-
-.visible {
-  visibility: visible;
-  pointer-events: auto;
-  opacity: 1;
-}
-
-
 
 /* scroll-watcher */
 progress-bar{
@@ -94,7 +59,6 @@ progress-bar{
 /* header text hover animation */
 
 .header-text-light, .header-text-dark{
-  color: #fff;
   font-size: 16px;
   cursor: pointer;
   position: relative;

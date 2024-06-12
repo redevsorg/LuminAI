@@ -9,6 +9,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import getMode from '../utils/getMode';
 import '../styles/Header.css';
+import '../styles/App.css';
 
 export const Route = createRootRoute({
     component: Root
@@ -22,6 +23,15 @@ function Root() {
         const headerEl = document.querySelector('header');
         const footerEl = document.querySelector('footer');
 
+    /*
+        // For debugging use only
+        console.log('Elements:', { scrollEl, headerEl, footerEl });
+        if (!scrollEl || !headerEl || !footerEl) {
+            console.error('Missing elements:', { scrollEl, headerEl, footerEl });
+            return;
+        }
+    */
+   
         const scroll = new LocomotiveScroll({
             el: scrollEl,
             smooth: true,
@@ -67,24 +77,24 @@ function Root() {
 
             if (headerEl) {
                 if (scrollPosition > windowHeight / 2.5) {
-                    headerEl.style.opacity = '1';
                     headerEl.classList.add('visible');
+                    headerEl.classList.remove('hidden');
                 } else {
-                    headerEl.style.opacity = '0';
                     headerEl.classList.remove('visible');
+                    headerEl.classList.add('hidden');
                 }
             }
-
+            
             if (footerEl) {
                 if (scrollPosition + windowHeight >= totalHeight) {
-                    footerEl.style.opacity = '1';
                     footerEl.classList.add('visible');
+                    footerEl.classList.remove('hidden');
                 } else {
-                    footerEl.style.opacity = '0';
                     footerEl.classList.remove('visible');
+                    footerEl.classList.add('hidden');
                 }
-            }
-
+            }            
+            
             // Reset animations when reaching the top
             if (scrollPosition === 0) {
                 document.querySelectorAll('[data-aos]').forEach((aosElem) => {

@@ -6,8 +6,8 @@ import { Link } from '@tanstack/react-router';
 
 const Header = () => {
   const mode = getMode();
-  const headerClass = `header bg-blue-600 text-white p-4 hidden ${mode === "dark" ? "header-dark" : "header-light"}`;
-  const navClass = `mt-2 ${mode === "dark" ? "header-dark" : "header-light"}`; // add fonts
+  const headerClass = ` p-4 ${mode === "dark" ? "header-dark text-white" : "header-light text-black"}`;
+  const navClass = `mt-2 ${mode === "dark" ? "header-text-dark text-white" : "header-text-light text-black"}`; // add fonts
 
   return (
     <div>

@@ -32,6 +32,6 @@ function Inquiry() {
       </div>
     </div>
   )
-};
+}
 
 export default Inquiry;

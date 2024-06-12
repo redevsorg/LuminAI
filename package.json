@@ -4,9 +4,7 @@
   "homepage": "https://samgu-nrx.github.io/LuminAI/",
   "private": true,
   "type": "module",
-
   "scripts": {
-
     "dev": "vite",
     "start": "vite",
     "serve": "vite preview",
@@ -15,20 +13,18 @@
     "preview": "vite preview",
     "deploy": "gh-pages -d build"
   },
-
   "dependencies": {
-    "@tanstack/react-router": "^1.35.6",
+    "@tanstack/react-router": "^1.36.2",
     "aos": "^2.3.4",
     "emailjs-com": "^3.2.0",
     "locomotive-aos": "^1.0.7",
     "locomotive-scroll": "^4.1.4",
     "pnpm": "^9.3.0",
-    "react": "19.0.0-rc-6230622a1a-20240610",
-    "react-dom": "19.0.0-rc-6230622a1a-20240610",
+    "react": "19.0.0-rc-f3e09d6328-20240612",
+    "react-dom": "19.0.0-rc-f3e09d6328-20240612",
     "react-helmet-async": "^2.0.5",
-    "sonner": "^1.5"
+    "sonner": "^1.5.0"
   },
-
   "devDependencies": {
     "@tanstack/router-vite-plugin": "^1.35.4",
     "@types/react": "^18.2.66",
