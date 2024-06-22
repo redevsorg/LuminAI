@@ -76,6 +76,11 @@ function Home() {
           </ul>
         </div>
 
+        <div className="join-us grid-cols-1 p-4 shadow-md" data-aos="fade-up">
+          <h2 className="text-l font-bold mb-2">Join us for an immersive AI learning experience!</h2>
+          <p>Explore cutting-edge AI technologies, gain hands-on experience, and be part of the future of innovation.</p>
+        </div>
+
         <div className="text-center mt-12" data-aos="fade-up" data-aos-delay="500">
           <ApplyButton />
         </div>

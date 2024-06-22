@@ -34,7 +34,7 @@
     padding: 16px;
     position: relative;
     width: 300px;
-    animation: glow 1.5s infinite alternate;
+    animation: glow 1.5s   alternate;
     /* animation: bounceIn 1s; */
     transition: box-shadow 0.3s ease-in-out;
     animation-fill-mode: forwards; /* Keep the final state of bounce */

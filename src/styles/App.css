@@ -24,7 +24,6 @@ code {
 
 header, footer {
   position: fixed;
-  top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
@@ -40,6 +39,9 @@ header, footer {
   backdrop-filter: blur(5px);
 }
 
+footer{
+  bottom: 0;
+}
 
 /* Add top padding to main content equal to the header height */
 main {
