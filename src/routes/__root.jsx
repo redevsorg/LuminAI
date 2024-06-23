@@ -23,19 +23,17 @@ function Root() {
         const headerEl = document.querySelector('header');
         const footerEl = document.querySelector('footer');
 
-    /*
-        // For debugging use only
-        console.log('Elements:', { scrollEl, headerEl, footerEl });
         if (!scrollEl || !headerEl || !footerEl) {
             console.error('Missing elements:', { scrollEl, headerEl, footerEl });
             return;
         }
-    */
-   
+
         const scroll = new LocomotiveScroll({
             el: scrollEl,
             smooth: true,
         });
+
+        scroll.on('scroll', (args) => handleScroll(args, headerEl, footerEl, setShowProgressBar, showProgressBar));
 
         AOS.init({
             duration: 1000,
@@ -56,62 +54,58 @@ function Root() {
             observer.observe(aosElem);
         });
 
-        const handleScroll = (args) => {
-            const scrollPosition = args.scroll.y;
-            const totalHeight = args.limit.y;
-            const windowHeight = window.innerHeight;
-
-            if (totalHeight > 2.5 * windowHeight) {
-                setShowProgressBar(true);
-            } else {
-                setShowProgressBar(false);
-            }
-
-            if (showProgressBar) {
-                const progressBarEl = document.querySelector('#progress-bar');
-                if (progressBarEl) {
-                    const scrollPercentage = (scrollPosition / totalHeight) * 100;
-                    progressBarEl.style.width = `${scrollPercentage}%`;
-                }
-            }
-
-            if (headerEl) {
-                if (scrollPosition > windowHeight / 2.5) {
-                    headerEl.classList.add('visible');
-                    headerEl.classList.remove('hidden');
-                } else {
-                    headerEl.classList.remove('visible');
-                    headerEl.classList.add('hidden');
-                }
-            }
-            
-            if (footerEl) {
-                if (scrollPosition + windowHeight >= totalHeight) {
-                    footerEl.classList.add('visible');
-                    footerEl.classList.remove('hidden');
-                } else {
-                    footerEl.classList.remove('visible');
-                    footerEl.classList.add('hidden');
-                }
-            }            
-            
-            // Reset animations when reaching the top
-            if (scrollPosition === 0) {
-                document.querySelectorAll('[data-aos]').forEach((aosElem) => {
-                    aosElem.classList.remove('aos-animate');
-                    observer.observe(aosElem);
-                });
-            }
-        };
-
-        scroll.on('scroll', handleScroll);
-
         return () => {
             scroll.destroy();
-            scroll.off('scroll', handleScroll);
             observer.disconnect();
         };
     }, [showProgressBar]);
+
+    const handleScroll = (args, headerEl, footerEl, setShowProgressBar, showProgressBar) => {
+        const scrollPosition = args.scroll.y;
+        const totalHeight = args.limit.y;
+        const windowHeight = window.innerHeight;
+
+        if (totalHeight > 2.5 * windowHeight) {
+            setShowProgressBar(true);
+        } else {
+            setShowProgressBar(false);
+        }
+
+        if (showProgressBar) {
+            const progressBarEl = document.querySelector('#progress-bar');
+            if (progressBarEl) {
+                const scrollPercentage = (scrollPosition / totalHeight) * 100;
+                progressBarEl.style.width = `${scrollPercentage}%`;
+            }
+        }
+
+        if (headerEl) {
+            if (scrollPosition > windowHeight / 2.5) {
+                headerEl.classList.add('visible');
+                headerEl.classList.remove('hidden');
+            } else {
+                headerEl.classList.remove('visible');
+                headerEl.classList.add('hidden');
+            }
+        }
+
+        if (footerEl) {
+            if (scrollPosition + windowHeight >= totalHeight) {
+                footerEl.classList.add('visible');
+                footerEl.classList.remove('hidden');
+            } else {
+                footerEl.classList.remove('visible');
+                footerEl.classList.add('hidden');
+            }
+        }
+
+        if (scrollPosition === 0) {
+            document.querySelectorAll('[data-aos]').forEach((aosElem) => {
+                aosElem.classList.remove('aos-animate');
+                observer.observe(aosElem);
+            });
+        }
+    };
 
     return (
         <>
@@ -125,9 +119,11 @@ function Root() {
                 <Header />
                 <main id="main-container" data-scroll-container>
                     <Outlet />
+                    <Footer />
                 </main>
-                <Footer />
             </div>
         </>
     );
-};
+}
+
+export default Root;

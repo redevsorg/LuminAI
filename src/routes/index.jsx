@@ -57,7 +57,7 @@ function Home() {
         <div className="mt-8" data-aos="fade-up" data-aos-delay="300">
           <h3 className="text-xl font-bold mb-4">Programming Frameworks and Libraries</h3>
           <p>We cover popular programming frameworks and libraries such as PyTorch and TensorFlow, helping you build robust AI models.</p>
-          <ul className="list-disc list-inside">
+          <ul className="mt-2 list-disc list-inside">
             <li>Convolutional Neural Networks (CNNs)</li>
             <li>Image Recognition</li>
             <li>Natural Language Processing (NLP)</li>
@@ -69,15 +69,15 @@ function Home() {
         <div className="mt-8" data-aos="fade-up" data-aos-delay="400">
           <h3 className="text-xl font-bold mb-4">Mathematical Foundations</h3>
           <p>We also cover essential mathematical concepts that are fundamental to AI, including:</p>
-          <ul className="list-disc list-inside">
+          <ul className="mt-2 list-disc list-inside">
             <li>Matrices and Basic Linear Algebra</li>
             <li>Principles of Neural Networks</li>
             <li>Understanding Large Language Models (LLMs)</li>
           </ul>
         </div>
 
-        <div className="join-us grid-cols-1 p-4 shadow-md" data-aos="fade-up">
-          <h2 className="text-l font-bold mb-2">Join us for an immersive AI learning experience!</h2>
+        <div className="bg-white rounded-lg grid grid-cols-1 mt-8 p-4 shadow-md" data-aos="fade-up">
+          <h2 className="text-xl font-bold mb-2">Join us for an immersive AI learning experience!</h2>
           <p>Explore cutting-edge AI technologies, gain hands-on experience, and be part of the future of innovation.</p>
         </div>
 
@@ -95,8 +95,6 @@ function Home() {
           </button>
 
         </div>
-
-
       </div>
     </div>
   );
