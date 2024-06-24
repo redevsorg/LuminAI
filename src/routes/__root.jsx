@@ -1,14 +1,14 @@
 import { createRootRoute, Outlet } from '@tanstack/react-router'
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import LocomotiveScroll from 'locomotive-scroll';
 import 'locomotive-scroll/dist/locomotive-scroll.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Header from '../components/Header/Header';
+import Footer from '../components/Footer.jsx';
 import getMode from '../utils/getMode';
-import '../styles/Header.css';
+import '../components/Header/Header.css';
 import '../styles/App.css';
 
 export const Route = createRootRoute({
@@ -16,47 +16,57 @@ export const Route = createRootRoute({
 })
 
 function Root() {
+    const [prelolader, setPreloader] = useState(true);
+
     const [showProgressBar, setShowProgressBar] = useState(false);
+    const observerRef = useRef(null);
+    const scrollRef = useRef(null);
 
     useEffect(() => {
         const scrollEl = document.querySelector('#main-container');
         const headerEl = document.querySelector('header');
         const footerEl = document.querySelector('footer');
 
-        if (!scrollEl || !headerEl || !footerEl) {
-            console.error('Missing elements:', { scrollEl, headerEl, footerEl });
-            return;
+
+        if (!scrollRef.current) {
+            console.log('Initializing Locomotive Scroll');
+            scrollRef.current = new LocomotiveScroll({
+                el: scrollEl,
+                smooth: true,
+            });
+
+            scrollRef.current.on('scroll', (args) => handleScroll(args, headerEl, footerEl, setShowProgressBar, showProgressBar));
+
+            console.log('Initializing AOS');
+            AOS.init({
+                duration: 1000,
+                once: true,
+                easing: 'ease-in-out',
+            });
+
+            console.log('Initializing Intersection Observer for AOS refresh');
+            observerRef.current = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        AOS.refresh();
+                    }
+                });
+            });
+
+            document.querySelectorAll('[data-aos]').forEach((aosElem) => {
+                observerRef.current.observe(aosElem);
+            });
         }
 
-        const scroll = new LocomotiveScroll({
-            el: scrollEl,
-            smooth: true,
-        });
-
-        scroll.on('scroll', (args) => handleScroll(args, headerEl, footerEl, setShowProgressBar, showProgressBar));
-
-        AOS.init({
-            duration: 1000,
-            once: true,
-            easing: 'ease-in-out',
-        });
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('aos-animate');
-                    observer.unobserve(entry.target);
-                }
-            });
-        });
-
-        document.querySelectorAll('[data-aos]').forEach((aosElem) => {
-            observer.observe(aosElem);
-        });
-
         return () => {
-            scroll.destroy();
-            observer.disconnect();
+            console.log('Cleaning up');
+            if (observerRef.current) {
+                observerRef.current.disconnect();
+            }
+            if (scrollRef.current) {
+                scrollRef.current.destroy();
+                scrollRef.current = null;
+            }
         };
     }, [showProgressBar]);
 
@@ -64,6 +74,7 @@ function Root() {
         const scrollPosition = args.scroll.y;
         const totalHeight = args.limit.y;
         const windowHeight = window.innerHeight;
+
 
         if (totalHeight > 2.5 * windowHeight) {
             setShowProgressBar(true);
@@ -102,13 +113,19 @@ function Root() {
         if (scrollPosition === 0) {
             document.querySelectorAll('[data-aos]').forEach((aosElem) => {
                 aosElem.classList.remove('aos-animate');
-                observer.observe(aosElem);
+                if (observerRef.current) {
+                    observerRef.current.observe(aosElem);
+                }
             });
         }
     };
 
     return (
-        <>
+
+// {preloader ? <div className="loader-wrapper absolute">
+//     <div/>
+// }
+        <div id="main-container">
             {showProgressBar && (
                 <div id="progress-bar"
                     className={(getMode() === "dark") ? "scroll-watcher-dark" : "scroll-watcher-light"}
@@ -116,13 +133,17 @@ function Root() {
                 ></div>
             )}
             <div>
-                <Header />
-                <main id="main-container" data-scroll-container>
+                
+                <main data-scroll-container>
+                    <Header />
                     <Outlet />
                     <Footer />
                 </main>
+                
             </div>
-        </>
+        </div>
+
+
     );
 }
 

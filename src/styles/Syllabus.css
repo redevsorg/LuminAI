@@ -5,7 +5,7 @@
     padding: 1.25rem;
     max-width: 1200px;
     margin: 0 auto;
-  }
+}
 
 
 @media (min-width: 768px) {
@@ -20,7 +20,14 @@
   border-radius: 8px;
 }
 
-h2 {
+
+.week, .highlights, .roles, .join-us, .navigation:hover{
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+}
+
+  h2 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
 }

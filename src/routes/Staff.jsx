@@ -1,10 +1,14 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { createFileRoute } from '@tanstack/react-router';
 import { Helmet } from 'react-helmet-async';
+
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+
 import getMode from '../utils/getMode';
 import MovingGradient from '../components/DynamicGradient';
+import '../styles/App.css';
+import '../styles/Staff.css';
 
 export const Route = createFileRoute('/Staff')({
   component: Staff,
@@ -13,9 +17,7 @@ export const Route = createFileRoute('/Staff')({
 function Staff() {
   const colorMode = getMode();
 
-  useEffect(() => {
-    AOS.init();
-  }, []);
+
 
   const teamMembers = [
     { 
@@ -60,7 +62,7 @@ function Staff() {
       <Helmet>
         <title>LuminAI - Staff</title>
       </Helmet>
-      <div className="p-4 justify-center text-center" style={{ animation: 'textPopIn 0.7s ease-in-out' }}>
+      <div className="custom-border p-4 justify-center text-center" style={{ animation: 'textPopIn 0.7s ease-in-out' }}>
         <h2 className="text-2xl font-bold mb-4">Meet Our Staff</h2>
         <p>Information about our experienced instructors and staff members.</p>
 

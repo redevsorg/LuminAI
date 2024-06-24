@@ -1,4 +1,4 @@
-import {toast } from 'sonner';
+import { toast } from 'sonner';
 import '../styles/ToastNotif.css'; // Include any additional styles here
 import getMode from '../utils/getMode';
 

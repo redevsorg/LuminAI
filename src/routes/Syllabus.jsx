@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { createFileRoute } from '@tanstack/react-router';
 import getMode from '../utils/getMode';
 import { Helmet } from 'react-helmet-async';
+
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+
 import '../styles/Syllabus.css';
 
 export const Route = createFileRoute('/Syllabus')({

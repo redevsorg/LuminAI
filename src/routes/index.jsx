@@ -1,60 +1,74 @@
-import React from 'react';
+import { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 import ApplyButton from '../components/ApplyButton';
 import '../styles/App.css';
 // import Aos from 'locomotive-aos';
+
 import { Toaster } from 'sonner';
 import showNotif from '../components/ToastNotif';
 import getMode from '../utils/getMode';
 import { createFileRoute } from '@tanstack/react-router'
 import { Helmet } from 'react-helmet-async';
+import ExploreAI from '../components/ExploreAI';
 
 export const Route = createFileRoute('/')({
   component: Home
 })
 
 function Home() {
-  var colorMode = getMode();
+  const colorMode = getMode();
+
   return (
-    <div data-scroll-section id='main-container'
-      className={(colorMode === "dark") ? "text-white" : "text-black"}
-      style={{ backgroundColor: (colorMode === 'dark') ? "#18181B" : "#f3f3f3" }}
-    >
-      <Helmet>
+    <div id="Home">
+
+      {/* <Helmet>
         <title>LuminAI</title>
-      </Helmet>
-      
-      <div className='flex-container'>
+      </Helmet> */}
+
+      <div
+        className={(colorMode === "dark") ? "text-white" : "text-black"}
+        style={{ backgroundColor: (colorMode === 'dark') ? "#18181B" : "#f3f3f3" }}
+      >
+
+        
+      <section data-scroll-section className='flex-container p-4'>
         <div className="p-4 justify-center text-center" style={{ animation: 'textPopIn 0.7s ease-in-out' }}>
           <h2 className="text-2xl font-bold mb-4">Welcome to LuminAI Innovate Scholars</h2>
           <p>Empowering the next generation of AI innovators through comprehensive bootcamps.</p>
         </div>
         <ApplyButton className="mb-4" />
-      </div>
+      </section>
 
-      <div className="p-4">
-        <h2 className="text-2xl font-bold mb-4" data-aos="fade-up">Welcome to Lumin AI Innovate Scholars</h2>
-        <p className="mb-4" data-aos="fade-up" data-aos-delay="100">Empowering the next generation of AI innovators through comprehensive bootcamps.</p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4" data-aos="fade-up" data-aos-delay="200">
-          <div className="bg-gray-100 p-4 rounded shadow-md">
+        <section data-scroll-section data-aos="fade-up" data-aos-delay="0" className='p-4'>
+          <h2 className="text-2xl font-bold mb-4" >Welcome to Lumin AI Innovate Scholars</h2>
+
+          <p className="mb-4" data-aos-delay="100">Empowering the next generation of AI innovators through comprehensive bootcamps.</p>
+        </section>
+
+        <section data-scroll-section data-aos="fade-up" data-aos-delay="200" 
+        className="p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid bg-gray-100 p-4 rounded shadow-md hover:scale-[105%]">
             <h3 className="text-xl font-bold">Completely Free</h3>
             <p>Lumin AI Innovate Scholars is a completely free bootcamp. We believe in providing quality education to everyone without any cost at all.</p>
           </div>
-          <div className="bg-gray-100 p-4 rounded shadow-md">
+          <div className="grid bg-gray-100 p-4 rounded shadow-md hover:scale-[105%]">
             <h3 className="text-xl font-bold">From Students, For Students</h3>
             <p>Our program is created by students who understand the challenges and needs of learning AI. We aim to make AI education accessible to all students.</p>
           </div>
-          <div className="bg-gray-100 p-4 rounded shadow-md">
+          <div className="grid bg-gray-100 p-4 rounded shadow-md hover:scale-[105%]">
             <h3 className="text-xl font-bold">Non-Profit Organization</h3>
             <p>We are a non-profit organization dedicated to spreading knowledge and fostering innovation in the field of artificial intelligence.</p>
           </div>
-          <div className="bg-gray-100 p-4 rounded shadow-md">
+          <div className="grid bg-gray-100 p-4 rounded shadow-md hover:scale-[105%]">
             <h3 className="text-xl font-bold">Legitimate Industry Standard AI</h3>
             <p>Our curriculum covers industry-standard AI tools and techniques, ensuring that our students are well-prepared for real-world applications.</p>
           </div>
-        </div>
+        </section>
 
-        <div className="mt-8" data-aos="fade-up" data-aos-delay="300">
+        <section data-scroll-section data-aos="fade-up" data-aos-delay="300" className="mt-8 p-4" >
           <h3 className="text-xl font-bold mb-4">Programming Frameworks and Libraries</h3>
           <p>We cover popular programming frameworks and libraries such as PyTorch and TensorFlow, helping you build robust AI models.</p>
           <ul className="mt-2 list-disc list-inside">
@@ -64,9 +78,9 @@ function Home() {
             <li>Reinforcement Learning (RL)</li>
             <li>Machine Learning Algorithms</li>
           </ul>
-        </div>
+        </section>
 
-        <div className="mt-8" data-aos="fade-up" data-aos-delay="400">
+        <section data-scroll-section data-aos="fade-up" data-aos-delay="400" className="mt-8 p-4">
           <h3 className="text-xl font-bold mb-4">Mathematical Foundations</h3>
           <p>We also cover essential mathematical concepts that are fundamental to AI, including:</p>
           <ul className="mt-2 list-disc list-inside">
@@ -74,18 +88,39 @@ function Home() {
             <li>Principles of Neural Networks</li>
             <li>Understanding Large Language Models (LLMs)</li>
           </ul>
-        </div>
+        </section>
 
-        <div className="bg-white rounded-lg grid grid-cols-1 mt-8 p-4 shadow-md" data-aos="fade-up">
-          <h2 className="text-xl font-bold mb-2">Join us for an immersive AI learning experience!</h2>
-          <p>Explore cutting-edge AI technologies, gain hands-on experience, and be part of the future of innovation.</p>
-        </div>
+        <section data-scroll-section data-aos="fade-up" data-aos-delay="500" className="mt-8 p-4">
+          <div className="bg-white rounded-lg grid grid-cols-1 mt-8 p-4 shadow-md">
+            <h2 className="text-xl font-bold mb-2">Join us for an immersive AI learning experience!</h2>
+            <p>Explore cutting-edge AI technologies, gain hands-on experience, and be part of the future of innovation.</p>
+          </div>
 
-        <div className="text-center mt-12" data-aos="fade-up" data-aos-delay="500">
-          <ApplyButton />
-        </div>
+          <div className="text-center mt-12">
+            <ApplyButton />
+          </div>
+        </section>
 
-        <div>
+
+
+        {/* <div className="text-center mt-12" data-aos="fade-up" data-aos-delay="600">
+          <h2 className="text-xl font-bold mb-2">Get notified when we launch</h2>
+          <p>Sign up to receive notifications when we launch.</p>
+          <input
+            type="email"
+            placeholder="Enter your email"
+            className="input"
+            data-aos="fade-up"
+            data-aos-delay="700"
+          />  
+        </div> */}
+
+        <section data-scroll-section data-aos="fade-up" data-aos-delay="600" className="text-center mt-12 p-4">
+          <ExploreAI />
+        </section>
+
+
+        <section data-scroll-section data-aos="fade-up" data-aos-delay="800" className="text-center mt-8 p-4">
           <Toaster richColors />
           <button onClick={() => showNotif('Success! Message sent.', 'success')} className="btn mt-1 p-1 border rounded">
             Show Success Toast
@@ -93,9 +128,11 @@ function Home() {
           <button onClick={() => showNotif('Failed! Message not sent.', 'error')} className="btn mt-1 p-1 border rounded">
             Show Error Toast
           </button>
+        </section>
 
-        </div>
       </div>
     </div>
   );
 }
+
+export default Home;

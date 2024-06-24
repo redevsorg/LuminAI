@@ -7,6 +7,7 @@ import { createFileRoute } from '@tanstack/react-router'
 import { Helmet } from 'react-helmet-async';
 import getMode from '../utils/getMode';
 
+
 export const Route = createFileRoute('/Inquiry')({
   component: Inquiry,
 })

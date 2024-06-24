@@ -4,7 +4,7 @@
 
 
 /* scroll-watcher */
-progress-bar{
+.progress-bar-light, .progress-bar-dark {
     height: 10px;
     position: fixed;
     top: 0;
@@ -20,11 +20,10 @@ progress-bar{
     margin-bottom: 5px;
   }
   
-  .scroll-watcher-light{
-      background: var(--light-gradient-color);
-    }
-    
-  .scroll-watcher-dark{
-    background: var(--dark-gradient-color);
+.progress-bar-light{
+    background: var(--light-gradient-color);
   }
   
+.progress-bar-dark{
+  background: var(--dark-gradient-color);
+}
