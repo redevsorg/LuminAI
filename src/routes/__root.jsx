@@ -16,7 +16,7 @@ export const Route = createRootRoute({
 })
 
 function Root() {
-    const [prelolader, setPreloader] = useState(true);
+    const [preloader, setPreloader] = useState(true);
 
     const [showProgressBar, setShowProgressBar] = useState(false);
     const observerRef = useRef(null);
