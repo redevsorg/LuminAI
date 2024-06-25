@@ -12,6 +12,7 @@ import getMode from '../utils/getMode';
 import { createFileRoute } from '@tanstack/react-router'
 import { Helmet } from 'react-helmet-async';
 import ExploreAI from '../components/ExploreAI';
+import ContactUs from '../components/ContactUs';
 
 export const Route = createFileRoute('/')({
   component: Home
@@ -119,6 +120,9 @@ function Home() {
           <ExploreAI />
         </section>
 
+        <section data-scroll-section data-aos="fade-up" data-aos-delay="700" className="text-center mt-8 p-4">
+          <ContactUs />  
+        </section>
 
         <section data-scroll-section data-aos="fade-up" data-aos-delay="800" className="text-center mt-8 p-4">
           <Toaster richColors />
