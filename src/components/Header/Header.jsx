@@ -11,7 +11,7 @@ const Header = () => {
   return (
     <header className={headerClass}>
       <div className="container mx-auto flex justify-between items-center">
-        <h1 className="text-2xl">LuminAI Innovate Scholars</h1>
+        <h2 className="text-2xl">LuminAI Innovate Scholars</h2>
         <nav className={navClass}>
           <Link to="/" className="mx-2">Home</Link>
           <Link to="/syllabus" className="mx-2">Syllabus</Link>
