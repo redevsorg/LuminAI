@@ -21,15 +21,6 @@ import { getFirestore, doc, setDoc, getDoc } from 'firebase/firestore';
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyDiyAkWmuhiMvFwIb7JqLE5__YSmLf3OuE",
-  authDomain: "luminai-bootcamps.firebaseapp.com",
-  projectId: "luminai-bootcamps",
-  storageBucket: "luminai-bootcamps.appspot.com",
-  messagingSenderId: "503046514353",
-  appId: "1:503046514353:web:a8480e3fd8aa17a1066490",
-  measurementId: "G-SFFVGZDKTS"
-};
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
