@@ -11,5 +11,7 @@ The bootcamp will also include guest speakers that have work and research experi
 ## How It's Made:
 
 **Front-End:** React.js, Vite.js, Tailwind.css
+
 **Back-End:**  Node.js, Express.js, MongoDB, Firebase
+
 **Deployment:** github-pages
