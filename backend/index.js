@@ -1,18 +1,15 @@
+const functions = require('firebase-functions');
 const express = require('express');
-const bodyParser = require('body-parser');
 const cors = require('cors');
 const admin = require('firebase-admin');
 const { v4: uuidv4 } = require('uuid');
 
 const app = express();
-app.use(cors());
-app.use(bodyParser.json());
+app.use(cors({ origin: true }));
+app.use(express.json());
 
 // Firebase admin setup
-const serviceAccount = require('./serviceAccountKey.json');
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-});
+admin.initializeApp();
 
 const db = admin.firestore();
 
@@ -31,7 +28,4 @@ app.post('/generate-enrollment-link', async (req, res) => {
 
 // More backend routes can be added here...
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+exports.api = functions.https.onRequest(app);
