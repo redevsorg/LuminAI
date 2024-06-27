@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { registerWithEmail } from '../firebaseConfig';
+import { registerWithEmail } from '../../firebaseConfig';
 
 const Register = () => {
   const [email, setEmail] = useState('');

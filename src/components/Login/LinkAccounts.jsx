@@ -1,4 +1,4 @@
-import { linkWithGoogle, linkWithDiscord } from '../firebaseConfig';
+import { linkWithGoogle, linkWithDiscord } from '../../firebaseConfig';
 
 const LinkAccounts = () => {
   return (
