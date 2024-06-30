@@ -14,7 +14,7 @@
     "deploy": "gh-pages -d build"
   },
   "dependencies": {
-    "@tanstack/react-router": "^1.36.2",
+    "@tanstack/react-router": "^1.40.0",
     "aos": "^2.3.4",
     "axios": "^1.7.2",
     "dotenv": "^16.4.5",
@@ -22,28 +22,28 @@
     "firebase": "^10.12.2",
     "locomotive-aos": "^1.0.7",
     "locomotive-scroll": "^4.1.4",
-    "pnpm": "^9.3.0",
+    "pnpm": "^9.4.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-helmet-async": "^2.0.5",
     "sonner": "^1.5.0"
   },
   "devDependencies": {
-    "@tanstack/router-vite-plugin": "^1.35.4",
-    "@types/react": "^18.2.66",
-    "@types/react-dom": "^18.2.22",
+    "@tanstack/router-vite-plugin": "^1.40.3",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
     "autoprefixer": "^10.4.19",
-    "babel-plugin-react-compiler": "^0.0.0-experimental-938cd9a-20240601",
-    "eslint": "^8.57.0",
-    "eslint-plugin-react": "^7.34.1",
+    "babel-plugin-react-compiler": "^0.0.0",
+    "eslint": "^9.5.0",
+    "eslint-plugin-react": "^7.34.3",
     "eslint-plugin-react-compiler": "0.0.0-experimental-51a85ea-20240601",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.6",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-refresh": "^0.4.7",
     "gh-pages": "^6.1.1",
     "postcss": "^8.4.38",
-    "tailwindcss": "^3.4.3",
-    "vite": "^5.2.0"
+    "tailwindcss": "^3.4.4",
+    "vite": "^5.3.2"
   },
   "browserslist": {
     "production": [
