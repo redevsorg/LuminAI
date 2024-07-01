@@ -5,6 +5,9 @@ import 'locomotive-scroll/dist/locomotive-scroll.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
+import AOSInit from '../utils/aos.tsx';
+// import Preloader from '../components/Preloader.jsx';
+
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer.jsx';
 import getMode from '../utils/getMode';
@@ -38,11 +41,7 @@ function Root() {
             scrollRef.current.on('scroll', (args) => handleScroll(args, headerEl, footerEl, setShowProgressBar, showProgressBar));
 
             console.log('Initializing AOS');
-            AOS.init({
-                duration: 1000,
-                once: true,
-                easing: 'ease-in-out',
-            });
+            <AOSInit />
 
             console.log('Initializing Intersection Observer for AOS refresh');
             observerRef.current = new IntersectionObserver((entries) => {

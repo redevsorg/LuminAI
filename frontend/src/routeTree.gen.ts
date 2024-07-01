@@ -13,6 +13,7 @@
 import { Route as rootRoute } from './routes/__root'
 import { Route as SyllabusImport } from './routes/Syllabus'
 import { Route as StaffImport } from './routes/Staff'
+import { Route as LoginImport } from './routes/Login'
 import { Route as InquiryImport } from './routes/Inquiry'
 import { Route as IndexImport } from './routes/index'
 
@@ -25,6 +26,11 @@ const SyllabusRoute = SyllabusImport.update({
 
 const StaffRoute = StaffImport.update({
   path: '/Staff',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const LoginRoute = LoginImport.update({
+  path: '/Login',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -56,6 +62,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InquiryImport
       parentRoute: typeof rootRoute
     }
+    '/Login': {
+      id: '/Login'
+      path: '/Login'
+      fullPath: '/Login'
+      preLoaderRoute: typeof LoginImport
+      parentRoute: typeof rootRoute
+    }
     '/Staff': {
       id: '/Staff'
       path: '/Staff'
@@ -78,6 +91,7 @@ declare module '@tanstack/react-router' {
 export const routeTree = rootRoute.addChildren({
   IndexRoute,
   InquiryRoute,
+  LoginRoute,
   StaffRoute,
   SyllabusRoute,
 })
@@ -92,6 +106,7 @@ export const routeTree = rootRoute.addChildren({
       "children": [
         "/",
         "/Inquiry",
+        "/Login",
         "/Staff",
         "/Syllabus"
       ]
@@ -101,6 +116,9 @@ export const routeTree = rootRoute.addChildren({
     },
     "/Inquiry": {
       "filePath": "Inquiry.jsx"
+    },
+    "/Login": {
+      "filePath": "Login.jsx"
     },
     "/Staff": {
       "filePath": "Staff.jsx"

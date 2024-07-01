@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 import ApplyButton from '../components/ApplyButton';
@@ -50,20 +49,20 @@ function Home() {
         </section>
 
         <section data-scroll-section data-aos="fade-up" data-aos-delay="200" 
-        className="p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="grid bg-gray-100 p-4 rounded shadow-md hover:scale-[105%]">
+        className="p-4 custom-grid grid-cols-1 md:grid-cols-2 gap-4 transition-all">
+          <div className="custom-grid bg-gray-100 p-4 rounded shadow-md hover:shadow-lg">
             <h3 className="text-xl font-bold">Completely Free</h3>
             <p>Lumin AI Innovate Scholars is a completely free bootcamp. We believe in providing quality education to everyone without any cost at all.</p>
           </div>
-          <div className="grid bg-gray-100 p-4 rounded shadow-md hover:scale-[105%]">
+          <div className="custom-grid bg-gray-100 p-4 rounded shadow-md hover:shadow-lg">
             <h3 className="text-xl font-bold">From Students, For Students</h3>
             <p>Our program is created by students who understand the challenges and needs of learning AI. We aim to make AI education accessible to all students.</p>
           </div>
-          <div className="grid bg-gray-100 p-4 rounded shadow-md hover:scale-[105%]">
+          <div className="custom-grid bg-gray-100 p-4 rounded shadow-md hover:shadow-lg">
             <h3 className="text-xl font-bold">Non-Profit Organization</h3>
             <p>We are a non-profit organization dedicated to spreading knowledge and fostering innovation in the field of artificial intelligence.</p>
           </div>
-          <div className="grid bg-gray-100 p-4 rounded shadow-md hover:scale-[105%]">
+          <div className="custom-grid bg-gray-100 p-4 rounded shadow-md hover:shadow-lg">
             <h3 className="text-xl font-bold">Legitimate Industry Standard AI</h3>
             <p>Our curriculum covers industry-standard AI tools and techniques, ensuring that our students are well-prepared for real-world applications.</p>
           </div>
@@ -92,7 +91,7 @@ function Home() {
         </section>
 
         <section data-scroll-section data-aos="fade-up" data-aos-delay="500" className="mt-8 p-4">
-          <div className="bg-white rounded-lg grid grid-cols-1 mt-8 p-4 shadow-md">
+          <div className="transition-all bg-white rounded-lg custom-grid grid-cols-1 mt-8 p-4 shadow-md hover:shadow-lg">
             <h2 className="text-xl font-bold mb-2">Join us for an immersive AI learning experience!</h2>
             <p>Explore cutting-edge AI technologies, gain hands-on experience, and be part of the future of innovation.</p>
           </div>

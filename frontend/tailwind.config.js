@@ -5,7 +5,15 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      transitionDuration: {
+        '200': '200ms',
+      },
+      fontFamily: {
+        sans: ['"Bai Jamjuree"', "sans-serif"],
+        serif: ['"Bebas Neue"', "serif"]
+      }
+    },
   },
   plugins: [],
 }

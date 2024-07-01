@@ -14,11 +14,11 @@
     "deploy": "gh-pages -d build"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.3.3",
     "@tanstack/react-router": "^1.40.0",
     "aos": "^2.3.4",
     "axios": "^1.7.2",
     "dotenv": "^16.4.5",
-    "emailjs-com": "^3.2.0",
     "firebase": "^10.12.2",
     "locomotive-aos": "^1.0.7",
     "locomotive-scroll": "^4.1.4",
@@ -31,12 +31,13 @@
   },
   "devDependencies": {
     "@tanstack/router-vite-plugin": "^1.40.3",
+    "@types/aos": "^3.0.7",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
     "autoprefixer": "^10.4.19",
     "babel-plugin-react-compiler": "^0.0.0",
-    "eslint": "^9.5.0",
+    "eslint": "^9.6.0",
     "eslint-plugin-react": "^7.34.3",
     "eslint-plugin-react-compiler": "0.0.0-experimental-51a85ea-20240601",
     "eslint-plugin-react-hooks": "^4.6.2",

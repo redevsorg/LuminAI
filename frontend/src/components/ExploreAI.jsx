@@ -19,7 +19,7 @@ const Activities = () => {
   // GridItem Component
 const GridItem = ({ type, title, description }) => {
     return (
-      <div className="grid grid-item" data-type={type}>
+      <div className="custom-grid grid-item" data-type={type}>
         <h3>{title}</h3>
         <p>{description}</p>
       </div>

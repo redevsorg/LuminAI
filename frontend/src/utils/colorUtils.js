@@ -26,7 +26,7 @@ export const hexToRgb = (hex) => {
     const [hoverColor, setHoverColor] = useState(darkenColor(initialColor, 0.2));
 
     return(
-      <button className={{customClass}, 'px-4 py-2 text-white rounded'} 
+      <button className={{customClass} + 'px-4 py-2 text-white rounded'} 
       style={{backgroundColor: color}}
       onMouseEnter={setColor(hoverColor)} />
     )

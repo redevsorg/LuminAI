@@ -17,8 +17,6 @@ export const Route = createFileRoute('/Staff')({
 function Staff() {
   const colorMode = getMode();
 
-
-
   const teamMembers = [
     { 
       name: 'John Doe', 
@@ -62,12 +60,13 @@ function Staff() {
       <Helmet>
         <title>LuminAI - Staff</title>
       </Helmet>
-      <div className="custom-border p-4 justify-center text-center" style={{ animation: 'textPopIn 0.7s ease-in-out' }}>
+      <div className="pt-24 p-4 justify-center text-center">
         <h2 className="text-2xl font-bold mb-4">Meet Our Staff</h2>
         <p>Information about our experienced instructors and staff members.</p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
           {teamMembers.map((member, index) => (
+            <div style={{ animation: 'textPopIn 0.7s ease-in-out' }}>
             <div
               key={index}
               className="bg-white bg-opacity-80 p-6 rounded-lg text-center relative group"
@@ -77,11 +76,12 @@ function Staff() {
                 <MovingGradient />
               </div>
               <h2 className="text-2xl font-bold ">{member.name}</h2>
-              <div className="transform absolute inset-0 transition hover:scale-105 rounded-md bg-white bg-opacity-90 p-6 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 ">
+              <div className="transform absolute inset-0 duration-300 transition hover:scale-105 rounded-md bg-white bg-opacity-90 p-6 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 ">
                 <p className="text-lg">{member.role}</p>
                 <p className="text-sm italic">{member.fact}</p>
                 <p className="text-gray-600">{member.description}</p>
               </div>
+            </div>
             </div>
           ))}
         </div>

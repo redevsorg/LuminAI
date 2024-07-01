@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import generateEnrollmentLink from '../../utils/generateEnrollmentLink';
+import generateEnrollmentLink from './generateEnrollmentLink';
 
 const SendEnrollmentLink = () => {
   const [email, setEmail] = useState('');
