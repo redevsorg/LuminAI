@@ -70,14 +70,14 @@ function Staff() {
           {teamMembers.map((member, index) => (
             <div
               key={index}
-              className="bg-white bg-opacity-80 p-6 rounded-lg text-center transition-transform transform hover:scale-105 relative group"
+              className="bg-white bg-opacity-80 p-6 rounded-lg text-center relative group"
               data-aos="fade-up"
             >
               <div className="w-24 h-24 mx-auto mb-4">
                 <MovingGradient />
               </div>
-              <h2 className="text-2xl font-bold">{member.name}</h2>
-              <div className="absolute inset-0 bg-white bg-opacity-90 p-6 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity">
+              <h2 className="text-2xl font-bold ">{member.name}</h2>
+              <div className="transform absolute inset-0 transition hover:scale-105 rounded-md bg-white bg-opacity-90 p-6 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 ">
                 <p className="text-lg">{member.role}</p>
                 <p className="text-sm italic">{member.fact}</p>
                 <p className="text-gray-600">{member.description}</p>
