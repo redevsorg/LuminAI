@@ -22,17 +22,7 @@ function Login() {
     }
 
     return (
-        <>
-            <SignIn/>
-            <div>
-                <div className="flex justify-center items-center h-screen m-auto max-w-80 py-4">
-                <GoogleButton 
-                    onClick={handleGoogleSignIn} 
-                    className="custom-google-button"
-                />
-                </div>
-            </div>
-        </>
+        <SignIn/>
     )
 }
 

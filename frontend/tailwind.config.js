@@ -11,7 +11,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['"Bai Jamjuree"', "sans-serif"],
-        serif: ['"Bebas Neue"', "serif"]
+        slab: ['"Bebas Neue"', "sans-serif"],
         serif: ['"Montserrat"', "serif"]
       }
     },
