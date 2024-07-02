@@ -1,9 +1,22 @@
 import { useState } from 'react';
 import { auth, signInWithGoogle, signInWithEmailAndPassword } from '../../firebaseConfig';
+// import { GoogleButton } from 'react-google-button'
+import { UserAuth } from '../context/AuthContext';
 
-const Login = () => {
+const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const { googleSignIn } = UserAuth();
+    
+    const handleGoogleSignIn = async () => {
+        try {
+            const { user } = await googleSignIn();
+            console.log(user, "Logged in with Google");
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
   const handleLogin = async () => {
     try {
@@ -30,10 +43,10 @@ const Login = () => {
         placeholder="Password"
       />
       <button onClick={handleLogin}>Login</button>
-      <button onClick={signInWithGoogle}>Login with Google</button>
+      <button onClick={handleGoogleSignIn}>Login with Google</button>
       <button onClick={() => alert('Implement Discord login')}>Login with Discord</button>
     </div>
   );
 };
 
-export default Login;
+export default SignIn;

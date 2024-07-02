@@ -5,6 +5,7 @@ import { routeTree } from './routeTree.gen'
 import './styles/tailwind.css';
 import './styles/App.css';
 import { HelmetProvider } from 'react-helmet-async';
+import { AuthContextProvider } from './context/AuthContext';
 
 const router = createRouter({
   routeTree,
@@ -17,7 +18,9 @@ if (!rootElement.innerHTML) {
   root.render(
     <React.StrictMode>
       <HelmetProvider>
+        <AuthContextProvider>
         <RouterProvider router={router} />
+        </AuthContextProvider>
       </HelmetProvider>
     </React.StrictMode>,
   )

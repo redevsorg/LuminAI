@@ -2,17 +2,17 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import {
-    getAuth,
-    GoogleAuthProvider,
-    signInWithPopup,
-    signInWithEmailAndPassword,
-    createUserWithEmailAndPassword,
-    sendPasswordResetEmail,
-    updatePassword,
-    linkWithPopup
-  } from 'firebase/auth';
+  getAuth,
+  GoogleAuthProvider,
+  signInWithPopup,
+  signInWithEmailAndPassword as firebaseSignInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  sendPasswordResetEmail,
+  updatePassword,
+  linkWithPopup
+} 
+from 'firebase/auth';
 
-import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswordResetEmail, updatePassword, linkWithPopup } from 'firebase/auth';
 import { getFirestore, doc, setDoc, getDoc } from 'firebase/firestore';
 
 
@@ -21,6 +21,15 @@ import { getFirestore, doc, setDoc, getDoc } from 'firebase/firestore';
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
+console.log(import.meta.env.VITE_FIREBASE_API_KEY);
+console.log(import.meta.env.VITE_FIREBASE_AUTH_DOMAIN);
+console.log(import.meta.env.VITE_FIREBASE_PROJECT_ID);
+console.log(import.meta.env.VITE_FIREBASE_STORAGE_BUCKET);
+console.log(import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID);
+console.log(import.meta.env.VITE_FIREBASE_APP_ID);
+
+// change to env.local?
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -55,9 +64,9 @@ const registerWithEmail = async (email, password) => {
 };
   
 const signInWithEmailAndPassword = async (email, password) => {
-    await signInWithEmailAndPassword(auth, email, password);
+  await firebaseSignInWithEmailAndPassword(auth, email, password);
 };
-  
+
 const sendPasswordReset = async (email) => {
     await sendPasswordResetEmail(auth, email);
 };
