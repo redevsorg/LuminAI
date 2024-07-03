@@ -29,12 +29,12 @@ export const AuthContextProvider = ({ children }) => {
         };
     }, []);
 
-    // const logOut = () => {
-    //     signOut(); 
-    // }
+    const logOut = () => {
+        signOut(auth); 
+    }
 
     return (
-        <AuthContext.Provider value={{ googleSignIn }}>
+        <AuthContext.Provider value={{ googleSignIn, logOut, user}}>
             {children}
         </AuthContext.Provider>
     );

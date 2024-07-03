@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { createFileRoute } from '@tanstack/react-router';
 import { Helmet } from 'react-helmet-async';
+import { getItems } from '../services/directus';
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -17,38 +18,51 @@ export const Route = createFileRoute('/Staff')({
 function Staff() {
   const colorMode = getMode();
 
+  // TODO: Change to items & setItems to "teamMembers" to use as CMS database
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    const fetchStaffMembers = async () => {
+      const data = await getItems('luminai_team_members');
+      setItems(data.data);
+    };
+
+    fetchStaffMembers();
+  }, []);
+
   const teamMembers = [
     { 
       name: 'John Doe', 
       role: 'President', 
-      fact: 'Developed a state-of-the-art NLP model.', 
+      achievement: 'Developed a state-of-the-art NLP model.', 
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' 
     },
     { 
       name: 'Jane Smith', 
       role: 'Director of Coursework', 
-      fact: 'Specialized in machine learning algorithms.', 
+      achievement: 'Specialized in machine learning algorithms.', 
       description: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.' 
     },
     { 
       name: 'Emily Chen', 
       role: 'Director of Logistics', 
-      fact: 'Organized a statewide coding competition that attracted over 500 participants.', 
+      achievement: 'Organized a statewide coding competition that attracted over 500 participants.', 
       description: 'Emily is known for her exceptional organizational skills and ability to handle complex logistics with ease. She ensures everything runs smoothly.' 
     },
     { 
       name: 'Michael Thompson', 
       role: 'Director of Management', 
-      fact: 'Managed a team of 20 volunteers for a community tech education program.', 
+      achievement: 'Managed a team of 20 volunteers for a community tech education program.', 
       description: 'Michael\'s leadership and management skills have been instrumental in the success of several community projects, making a significant impact.' 
     },
     { 
       name: 'Sophia Martinez', 
       role: 'Director of Mentorship', 
-      fact: 'Created a peer mentoring program that improved academic performance and morale among students.', 
+      achievement: 'Created a peer mentoring program that improved academic performance and morale among students.', 
       description: 'Sophia is passionate about helping others succeed. Her mentorship program has been a game-changer for many students, providing guidance and support.' 
     }
   ];  
+
 
   return (
     <div
@@ -72,13 +86,35 @@ function Staff() {
               className="bg-white bg-opacity-80 p-6 rounded-lg text-center relative group"
               data-aos="fade-up"
             >
+
               <div className="w-24 h-24 mx-auto mb-4">
                 <MovingGradient />
               </div>
+            
+              <div className="w-24 h-24 mx-auto mb-4 relative">
+                {member.photo ? (
+                  <div
+                    className="w-24 h-24 rounded-full border-4"
+                    style={{
+                      borderImage: generateRandomGradient(),
+                      borderImageSlice: 1,
+                    }}
+                  >
+                    <img
+                      src={member.photo}
+                      alt={member.name}
+                      className="w-full h-full rounded-full object-cover"
+                    />
+                  </div>
+                ) : (
+                  <MovingGradient />
+                )}
+              </div>
+
               <h2 className="text-2xl font-bold ">{member.name}</h2>
               <div className="transform absolute inset-0 duration-300 transition hover:scale-105 rounded-md bg-white bg-opacity-90 p-6 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 ">
                 <p className="text-lg">{member.role}</p>
-                <p className="text-sm italic">{member.fact}</p>
+                <p className="text-sm italic">{member.achievement}</p>
                 <p className="text-gray-600">{member.description}</p>
               </div>
             </div>
