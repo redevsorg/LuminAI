@@ -2,8 +2,8 @@ import React, { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
 import { RouterProvider, createRouter } from '@tanstack/react-router'
 import { routeTree } from './routeTree.gen'
-import './styles/tailwind.css';
-import './styles/App.css';
+import './styles/tailwind.scss';
+import './styles/App.scss';
 import { HelmetProvider } from 'react-helmet-async';
 import { AuthContextProvider } from './context/AuthContext';
 

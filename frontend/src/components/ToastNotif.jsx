@@ -1,5 +1,5 @@
 import { toast } from 'sonner';
-import '../styles/ToastNotif.css'; // Include any additional styles here
+import '../styles/ToastNotif.scss'; // Include any additional styles here
 import getMode from '../utils/getMode';
 
 // Function to show toast notification

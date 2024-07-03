@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet-async';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-import '../styles/Syllabus.css';
+import '../styles/Syllabus.scss';
 
 export const Route = createFileRoute('/Syllabus')({
   component: Syllabus,

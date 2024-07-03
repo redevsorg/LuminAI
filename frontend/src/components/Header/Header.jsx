@@ -1,5 +1,5 @@
-import "../../styles/App.css";
-import "./Header.css";
+import "../../styles/App.scss";
+import "./Header.scss";
 import getMode from "../../utils/getMode";
 import { Link } from "@tanstack/react-router";
 

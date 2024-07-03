@@ -2,7 +2,7 @@ import { createFileRoute } from '@tanstack/react-router';
 import SignIn from '../components/Login/SignIn'
 import { GoogleButton } from 'react-google-button'
 import { UserAuth } from '../context/AuthContext';
-import '../styles/Login.css';
+import '../styles/Login.scss';
 
 export const Route = createFileRoute('/Login')({
     component: Login,

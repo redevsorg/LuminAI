@@ -15,6 +15,7 @@ import { Route as SyllabusImport } from './routes/Syllabus'
 import { Route as StaffImport } from './routes/Staff'
 import { Route as LoginImport } from './routes/Login'
 import { Route as InquiryImport } from './routes/Inquiry'
+import { Route as DashboardImport } from './routes/Dashboard'
 import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
@@ -39,6 +40,11 @@ const InquiryRoute = InquiryImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const DashboardRoute = DashboardImport.update({
+  path: '/Dashboard',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const IndexRoute = IndexImport.update({
   path: '/',
   getParentRoute: () => rootRoute,
@@ -53,6 +59,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/Dashboard': {
+      id: '/Dashboard'
+      path: '/Dashboard'
+      fullPath: '/Dashboard'
+      preLoaderRoute: typeof DashboardImport
       parentRoute: typeof rootRoute
     }
     '/Inquiry': {
@@ -90,6 +103,7 @@ declare module '@tanstack/react-router' {
 
 export const routeTree = rootRoute.addChildren({
   IndexRoute,
+  DashboardRoute,
   InquiryRoute,
   LoginRoute,
   StaffRoute,
@@ -105,6 +119,7 @@ export const routeTree = rootRoute.addChildren({
       "filePath": "__root.jsx",
       "children": [
         "/",
+        "/Dashboard",
         "/Inquiry",
         "/Login",
         "/Staff",
@@ -113,6 +128,9 @@ export const routeTree = rootRoute.addChildren({
     },
     "/": {
       "filePath": "index.jsx"
+    },
+    "/Dashboard": {
+      "filePath": "Dashboard.jsx"
     },
     "/Inquiry": {
       "filePath": "Inquiry.jsx"

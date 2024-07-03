@@ -1,5 +1,5 @@
-import '../styles/ExploreAI.css';
-import '../styles/App.css';
+import '../styles/ExploreAI.scss';
+import '../styles/App.scss';
 import PropTypes from 'prop-types';
 
 // Background Component

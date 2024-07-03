@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { createFileRoute } from '@tanstack/react-router';
 import { Helmet } from 'react-helmet-async';
 import { getItems } from '../services/directus';
@@ -8,8 +8,8 @@ import 'aos/dist/aos.css';
 
 import getMode from '../utils/getMode';
 import MovingGradient from '../components/DynamicGradient';
-import '../styles/App.css';
-import '../styles/Staff.css';
+import '../styles/App.scss';
+import '../styles/Staff.scss';
 
 export const Route = createFileRoute('/Staff')({
   component: Staff,
@@ -25,6 +25,8 @@ function Staff() {
     const fetchStaffMembers = async () => {
       const data = await getItems('luminai_team_members');
       setItems(data.data);
+
+      console.log(data.data);
     };
 
     fetchStaffMembers();
@@ -35,33 +37,51 @@ function Staff() {
       name: 'John Doe', 
       role: 'President', 
       achievement: 'Developed a state-of-the-art NLP model.', 
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' 
+      description: 'John is a visionary leader with a deep understanding of natural language processing. His innovative work has set new standards in the field, making significant advancements in AI technology.' 
     },
     { 
       name: 'Jane Smith', 
       role: 'Director of Coursework', 
       achievement: 'Specialized in machine learning algorithms.', 
-      description: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.' 
+      description: 'Jane is an expert in machine learning with a passion for teaching. Her specialized coursework has empowered countless students to excel in AI, breaking down complex algorithms into easily understandable concepts.' 
     },
     { 
       name: 'Emily Chen', 
       role: 'Director of Logistics', 
       achievement: 'Organized a statewide coding competition that attracted over 500 participants.', 
-      description: 'Emily is known for her exceptional organizational skills and ability to handle complex logistics with ease. She ensures everything runs smoothly.' 
+      description: 'Emily is known for her exceptional organizational skills and ability to handle complex logistics with ease. She ensures everything runs smoothly, from event planning to daily operations.' 
     },
     { 
       name: 'Michael Thompson', 
       role: 'Director of Management', 
       achievement: 'Managed a team of 20 volunteers for a community tech education program.', 
-      description: 'Michael\'s leadership and management skills have been instrumental in the success of several community projects, making a significant impact.' 
+      description: 'Michael\'s leadership and management skills have been instrumental in the success of several community projects. His strategic vision and ability to inspire his team have made a significant impact.' 
     },
     { 
       name: 'Sophia Martinez', 
       role: 'Director of Mentorship', 
       achievement: 'Created a peer mentoring program that improved academic performance and morale among students.', 
-      description: 'Sophia is passionate about helping others succeed. Her mentorship program has been a game-changer for many students, providing guidance and support.' 
+      description: 'Sophia is passionate about helping others succeed. Her mentorship program has been a game-changer for many students, providing guidance and support that has led to improved academic performance and increased morale.' 
+    },
+    { 
+      name: 'Alex Johnson', 
+      role: 'Lead Developer', 
+      achievement: 'Designed and developed full-stack applications for the AI BootCamp.', 
+      description: 'Alex is a talented full-stack developer responsible for designing and implementing the programs used in the courses, as well as developing and maintaining the bootcamp\'s website. His work ensures a seamless user experience and robust technical infrastructure.' 
+    },
+    { 
+      name: 'Laura Nguyen', 
+      role: 'Instructor', 
+      achievement: 'Designed an interactive AI curriculum for high school students.', 
+      description: 'Laura is a dedicated educator with a creative approach to teaching AI. Her interactive curriculum engages students and makes learning complex topics enjoyable and accessible.' 
+    },
+    { 
+      name: 'Daniel Kim', 
+      role: 'Instructor', 
+      achievement: 'Published research on neural networks and their applications.', 
+      description: 'Daniel is a respected researcher and instructor with a deep knowledge of neural networks. His publications have contributed valuable insights to the AI community, and he brings this expertise to his teaching.' 
     }
-  ];  
+  ];
 
 
   return (
@@ -86,36 +106,32 @@ function Staff() {
               className="bg-white bg-opacity-80 p-6 rounded-lg text-center relative group"
               data-aos="fade-up"
             >
-
-              <div className="w-24 h-24 mx-auto mb-4">
-                <MovingGradient />
-              </div>
             
-              <div className="w-24 h-24 mx-auto mb-4 relative">
-                {member.photo ? (
-                  <div
-                    className="w-24 h-24 rounded-full border-4"
-                    style={{
-                      borderImage: generateRandomGradient(),
-                      borderImageSlice: 1,
-                    }}
-                  >
-                    <img
-                      src={member.photo}
-                      alt={member.name}
-                      className="w-full h-full rounded-full object-cover"
-                    />
-                  </div>
-                ) : (
-                  <MovingGradient />
-                )}
-              </div>
+            <div className="w-24 h-24 mx-auto mb-4 relative">
+              {member.photo ? (
+                <div
+                  className="w-24 h-24 rounded-full border-4"
+                  style={{
+                    borderImage: generateRandomGradient(),
+                    borderImageSlice: 1,
+                  }}
+                >
+                  <img
+                    src={member.photo}
+                    alt={member.name}
+                    className="w-full h-full rounded-full object-cover"
+                  />
+                </div>
+              ) : (
+                <MovingGradient />
+              )}
+            </div>
 
               <h2 className="text-2xl font-bold ">{member.name}</h2>
               <div className="transform absolute inset-0 duration-300 transition hover:scale-105 rounded-md bg-white bg-opacity-90 p-6 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 ">
-                <p className="text-lg">{member.role}</p>
-                <p className="text-sm italic">{member.achievement}</p>
-                <p className="text-gray-600">{member.description}</p>
+                <p className="text-xl font-sans" style={{fontWeight: '500'}}>{member.role}</p>
+                <p className="text-sm italic mt-1">{member.achievement}</p>
+                <p className="text-gray-600 text-sm" style={{marginTop: '3px'}}>{member.description}</p>
               </div>
             </div>
             </div>

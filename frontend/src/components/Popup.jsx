@@ -42,7 +42,7 @@
 
 
 import { useState, useEffect } from 'react';
-import '../styles/Popup.css';
+import '../styles/Popup.scss';
 
 const Popup = () => {
     const [isVisible, setIsVisible] = useState(false);

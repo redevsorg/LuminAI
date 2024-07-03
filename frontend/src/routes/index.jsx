@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import 'aos/dist/aos.css';
 
 import ApplyButton from '../components/ApplyButton';
-import '../styles/App.css';
+import '../styles/App.scss';
 // import Aos from 'locomotive-aos';
 
 import { Toaster } from 'sonner';

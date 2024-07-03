@@ -11,8 +11,8 @@ import AOSInit from '../utils/aos.tsx';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer.jsx';
 import getMode from '../utils/getMode';
-import '../components/Header/Header.css';
-import '../styles/App.css';
+import '../components/Header/Header.scss';
+import '../styles/App.scss';
 
 export const Route = createRootRoute({
     component: Root

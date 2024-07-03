@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import '../styles/Gradient.css';
+import '../styles/Gradient.scss';
 
 function MovingGradient() {
   const [gradient, setGradient] = useState('');
